@@ -1,75 +1,79 @@
-import type { Struct, Schema } from '@strapi/strapi';
+import type { Schema, Struct } from '@strapi/strapi';
 
-export interface SharedSlider extends Struct.ComponentSchema {
-  collectionName: 'components_shared_sliders';
+export interface GeneralCarouselItem extends Struct.ComponentSchema {
+  collectionName: 'components_general_carousel_items';
   info: {
-    displayName: 'Slider';
-    icon: 'address-book';
+    displayName: 'Carousel Item';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    url: Schema.Attribute.Component<'general.url', false>;
+  };
+}
+
+export interface GeneralUrl extends Struct.ComponentSchema {
+  collectionName: 'components_general_urls';
+  info: {
     description: '';
+    displayName: 'URL';
   };
   attributes: {
-    files: Schema.Attribute.Media<'images', true>;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
-export interface SharedSeo extends Struct.ComponentSchema {
-  collectionName: 'components_shared_seos';
+export interface SeoOpenGraph extends Struct.ComponentSchema {
+  collectionName: 'components_seo_open_graphs';
   info: {
-    name: 'Seo';
-    icon: 'allergies';
-    displayName: 'Seo';
     description: '';
+    displayName: 'OpenGraph';
   };
   attributes: {
-    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
-export interface SharedRichText extends Struct.ComponentSchema {
-  collectionName: 'components_shared_rich_texts';
+export interface SeoSeoMeta extends Struct.ComponentSchema {
+  collectionName: 'components_seo_seo_metas';
   info: {
-    displayName: 'Rich text';
-    icon: 'align-justify';
     description: '';
+    displayName: 'SEO Meta';
   };
   attributes: {
-    body: Schema.Attribute.RichText;
+    canonical: Schema.Attribute.Component<'general.url', false> &
+      Schema.Attribute.Required;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    opengraph: Schema.Attribute.Component<'seo.open-graph', false> &
+      Schema.Attribute.Required;
+    schema: Schema.Attribute.JSON;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    twitter: Schema.Attribute.Component<'seo.twitter', false> &
+      Schema.Attribute.Required;
   };
 }
 
-export interface SharedQuote extends Struct.ComponentSchema {
-  collectionName: 'components_shared_quotes';
+export interface SeoTwitter extends Struct.ComponentSchema {
+  collectionName: 'components_seo_twitters';
   info: {
-    displayName: 'Quote';
-    icon: 'indent';
+    description: '';
+    displayName: 'Twitter';
+    icon: 'twitter';
   };
   attributes: {
-    title: Schema.Attribute.String;
-    body: Schema.Attribute.Text;
-  };
-}
-
-export interface SharedMedia extends Struct.ComponentSchema {
-  collectionName: 'components_shared_media';
-  info: {
-    displayName: 'Media';
-    icon: 'file-video';
-  };
-  attributes: {
-    file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'shared.slider': SharedSlider;
-      'shared.seo': SharedSeo;
-      'shared.rich-text': SharedRichText;
-      'shared.quote': SharedQuote;
-      'shared.media': SharedMedia;
+      'general.carousel-item': GeneralCarouselItem;
+      'general.url': GeneralUrl;
+      'seo.open-graph': SeoOpenGraph;
+      'seo.seo-meta': SeoSeoMeta;
+      'seo.twitter': SeoTwitter;
     }
   }
 }

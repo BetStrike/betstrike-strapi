@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_seo_twitters",
+  "info": {
+    "displayName": "Twitter",
+    "icon": "twitter",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

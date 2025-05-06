@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_general_carousel_items",
+  "info": {
+    "displayName": "Carousel Item"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.url"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
