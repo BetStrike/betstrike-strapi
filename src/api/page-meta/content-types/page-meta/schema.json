@@ -1,10 +1,10 @@
 {
-  "kind": "singleType",
-  "collectionName": "homepages",
+  "kind": "collectionType",
+  "collectionName": "page_metas",
   "info": {
-    "singularName": "homepage",
-    "pluralName": "homepages",
-    "displayName": "Homepage",
+    "singularName": "page-meta",
+    "pluralName": "page-metas",
+    "displayName": "Page Meta",
     "description": ""
   },
   "options": {
@@ -22,10 +22,10 @@
       "component": "seo.seo-meta",
       "required": true
     },
-    "carousel": {
-      "type": "component",
-      "repeatable": true,
-      "component": "general.carousel-item"
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }

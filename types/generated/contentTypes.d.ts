@@ -436,13 +436,43 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     seo_meta: Schema.Attribute.Component<'seo.seo-meta', false> &
       Schema.Attribute.Required;
-    test: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPageMetaPageMeta extends Struct.CollectionTypeSchema {
+  collectionName: 'page_metas';
+  info: {
+    description: '';
+    displayName: 'Page Meta';
+    pluralName: 'page-metas';
+    singularName: 'page-meta';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::page-meta.page-meta'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo_meta: Schema.Attribute.Component<'seo.seo-meta', false> &
+      Schema.Attribute.Required;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -960,6 +990,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::configuration.configuration': ApiConfigurationConfiguration;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::page-meta.page-meta': ApiPageMetaPageMeta;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
