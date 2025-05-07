@@ -16,16 +16,25 @@
     }
   },
   "attributes": {
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
     "seo_meta": {
       "type": "component",
       "repeatable": false,
       "component": "seo.seo-meta",
-      "required": true
-    },
-    "slug": {
-      "type": "string",
-      "required": true,
-      "unique": true
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

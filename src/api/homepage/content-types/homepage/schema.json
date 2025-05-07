@@ -16,13 +16,8 @@
     }
   },
   "attributes": {
-    "seo_meta": {
-      "type": "component",
-      "repeatable": false,
-      "component": "seo.seo-meta",
-      "required": true
-    },
     "carousel": {
+      "displayName": "carousel_item",
       "type": "component",
       "repeatable": true,
       "component": "general.carousel-item"

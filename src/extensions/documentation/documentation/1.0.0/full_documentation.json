@@ -19,7 +19,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-07T07:59:19.041Z"
+    "x-generation-date": "2025-05-07T10:09:12.514Z"
   },
   "servers": [
     {
@@ -1011,7 +1011,7 @@
             "deprecated": false,
             "required": true,
             "schema": {
-              "type": "number"
+              "type": "string"
             }
           }
         ],
@@ -1091,7 +1091,7 @@
             "deprecated": false,
             "required": true,
             "schema": {
-              "type": "number"
+              "type": "string"
             }
           }
         ],
@@ -1182,7 +1182,7 @@
             "deprecated": false,
             "required": true,
             "schema": {
-              "type": "number"
+              "type": "string"
             }
           }
         ],
@@ -1279,11 +1279,15 @@
         "properties": {
           "data": {
             "required": [
-              "messages"
+              "messages",
+              "seo_meta"
             ],
             "type": "object",
             "properties": {
               "messages": {},
+              "seo_meta": {
+                "$ref": "#/components/schemas/SeoSeoMetaComponent"
+              },
               "locale": {
                 "type": "string"
               },
@@ -1343,7 +1347,8 @@
       "Configuration": {
         "type": "object",
         "required": [
-          "messages"
+          "messages",
+          "seo_meta"
         ],
         "properties": {
           "id": {
@@ -1353,6 +1358,9 @@
             "type": "string"
           },
           "messages": {},
+          "seo_meta": {
+            "$ref": "#/components/schemas/SeoSeoMetaComponent"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -1654,6 +1662,9 @@
                   "type": "string"
                 },
                 "messages": {},
+                "seo_meta": {
+                  "$ref": "#/components/schemas/SeoSeoMetaComponent"
+                },
                 "createdAt": {
                   "type": "string",
                   "format": "date-time"
@@ -1721,6 +1732,36 @@
           }
         }
       },
+      "SeoSeoMetaComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "canonical": {
+            "type": "string"
+          },
+          "schema": {},
+          "og_title": {
+            "type": "string"
+          },
+          "og_description": {
+            "type": "string"
+          },
+          "twitter_title": {
+            "type": "string"
+          },
+          "twitter_description": {
+            "type": "string"
+          }
+        }
+      },
       "HomepageRequest": {
         "type": "object",
         "required": [
@@ -1728,14 +1769,8 @@
         ],
         "properties": {
           "data": {
-            "required": [
-              "seo_meta"
-            ],
             "type": "object",
             "properties": {
-              "seo_meta": {
-                "$ref": "#/components/schemas/SeoSeoMetaComponent"
-              },
               "carousel": {
                 "type": "array",
                 "items": {
@@ -1800,18 +1835,12 @@
       },
       "Homepage": {
         "type": "object",
-        "required": [
-          "seo_meta"
-        ],
         "properties": {
           "id": {
             "type": "number"
           },
           "documentId": {
             "type": "string"
-          },
-          "seo_meta": {
-            "$ref": "#/components/schemas/SeoSeoMetaComponent"
           },
           "carousel": {
             "type": "array",
@@ -1866,9 +1895,6 @@
                 },
                 "documentId": {
                   "type": "string"
-                },
-                "seo_meta": {
-                  "$ref": "#/components/schemas/SeoSeoMetaComponent"
                 },
                 "carousel": {
                   "type": "array",
@@ -1943,77 +1969,11 @@
           }
         }
       },
-      "GeneralUrlComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "url": {
-            "type": "string"
-          }
-        }
-      },
-      "SeoTwitterComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "title": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          }
-        }
-      },
-      "SeoOpenGraphComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "title": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          }
-        }
-      },
-      "SeoSeoMetaComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "title": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "canonical": {
-            "$ref": "#/components/schemas/GeneralUrlComponent"
-          },
-          "schema": {},
-          "twitter": {
-            "$ref": "#/components/schemas/SeoTwitterComponent"
-          },
-          "opengraph": {
-            "$ref": "#/components/schemas/SeoOpenGraphComponent"
-          }
-        }
-      },
       "GeneralCarouselItemComponent": {
         "type": "object",
         "properties": {
           "id": {
             "type": "number"
-          },
-          "url": {
-            "$ref": "#/components/schemas/GeneralUrlComponent"
           },
           "image": {
             "type": "object",
@@ -2143,6 +2103,9 @@
                 }
               }
             }
+          },
+          "url": {
+            "type": "string"
           }
         }
       },
@@ -2154,16 +2117,15 @@
         "properties": {
           "data": {
             "required": [
-              "seo_meta",
               "slug"
             ],
             "type": "object",
             "properties": {
-              "seo_meta": {
-                "$ref": "#/components/schemas/SeoSeoMetaComponent"
-              },
               "slug": {
                 "type": "string"
+              },
+              "seo_meta": {
+                "$ref": "#/components/schemas/SeoSeoMetaComponent"
               },
               "locale": {
                 "type": "string"
@@ -2224,7 +2186,6 @@
       "PageMeta": {
         "type": "object",
         "required": [
-          "seo_meta",
           "slug"
         ],
         "properties": {
@@ -2234,11 +2195,11 @@
           "documentId": {
             "type": "string"
           },
-          "seo_meta": {
-            "$ref": "#/components/schemas/SeoSeoMetaComponent"
-          },
           "slug": {
             "type": "string"
+          },
+          "seo_meta": {
+            "$ref": "#/components/schemas/SeoSeoMetaComponent"
           },
           "createdAt": {
             "type": "string",
@@ -2540,11 +2501,11 @@
                 "documentId": {
                   "type": "string"
                 },
-                "seo_meta": {
-                  "$ref": "#/components/schemas/SeoSeoMetaComponent"
-                },
                 "slug": {
                   "type": "string"
+                },
+                "seo_meta": {
+                  "$ref": "#/components/schemas/SeoSeoMetaComponent"
                 },
                 "createdAt": {
                   "type": "string",

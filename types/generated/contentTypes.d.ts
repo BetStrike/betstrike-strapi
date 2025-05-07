@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiConfigurationConfiguration extends Struct.SingleTypeSchema {
   collectionName: 'configurations';
   info: {
+    description: '';
     displayName: 'Configuration';
     pluralName: 'configurations';
     singularName: 'configuration';
@@ -401,6 +402,13 @@ export interface ApiConfigurationConfiguration extends Struct.SingleTypeSchema {
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
+    seo_meta: Schema.Attribute.Component<'seo.seo-meta', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -434,8 +442,6 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
       'api::homepage.homepage'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    seo_meta: Schema.Attribute.Component<'seo.seo-meta', false> &
-      Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -469,10 +475,19 @@ export interface ApiPageMetaPageMeta extends Struct.CollectionTypeSchema {
     >;
     publishedAt: Schema.Attribute.DateTime;
     seo_meta: Schema.Attribute.Component<'seo.seo-meta', false> &
-      Schema.Attribute.Required;
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     slug: Schema.Attribute.String &
       Schema.Attribute.Required &
-      Schema.Attribute.Unique;
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

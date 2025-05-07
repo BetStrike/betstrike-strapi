@@ -1,7 +1,7 @@
 {
   "collectionName": "components_seo_seo_metas",
   "info": {
-    "displayName": "SEO Meta",
+    "displayName": "seo_meta",
     "description": ""
   },
   "options": {},
@@ -15,26 +15,26 @@
       "required": true
     },
     "canonical": {
-      "type": "component",
-      "repeatable": false,
-      "component": "general.url",
+      "type": "string",
       "required": true
     },
     "schema": {
       "type": "json"
     },
-    "twitter": {
-      "displayName": "Twitter",
-      "type": "component",
-      "repeatable": false,
-      "component": "seo.twitter",
+    "og_title": {
+      "type": "string",
       "required": true
     },
-    "opengraph": {
-      "displayName": "OpenGraph",
-      "type": "component",
-      "repeatable": false,
-      "component": "seo.open-graph",
+    "og_description": {
+      "type": "text",
+      "required": true
+    },
+    "twitter_title": {
+      "type": "string",
+      "required": true
+    },
+    "twitter_description": {
+      "type": "string",
       "required": true
     }
   }

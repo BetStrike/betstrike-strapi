@@ -1,0 +1,13 @@
+diff --git a/node_modules/@strapi/plugin-documentation/dist/server/services/helpers/build-api-endpoint-path.js b/node_modules/@strapi/plugin-documentation/dist/server/services/helpers/build-api-endpoint-path.js
+index def9e6f..cec412f 100644
+--- a/node_modules/@strapi/plugin-documentation/dist/server/services/helpers/build-api-endpoint-path.js
++++ b/node_modules/@strapi/plugin-documentation/dist/server/services/helpers/build-api-endpoint-path.js
+@@ -70,7 +70,7 @@ var pathToRegexp__namespace = /*#__PURE__*/_interopNamespaceDefault(pathToRegexp
+             deprecated: false,
+             required: true,
+             schema: {
+-                type: 'number'
++                type: 'string'
+             }
+         });
+         return acc;

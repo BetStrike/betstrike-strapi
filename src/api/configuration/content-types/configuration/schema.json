@@ -4,7 +4,8 @@
   "info": {
     "singularName": "configuration",
     "pluralName": "configurations",
-    "displayName": "Configuration"
+    "displayName": "Configuration",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,6 +18,17 @@
   "attributes": {
     "messages": {
       "type": "json",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "seo_meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo-meta",
       "required": true,
       "pluginOptions": {
         "i18n": {
