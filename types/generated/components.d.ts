@@ -36,7 +36,7 @@ export interface SeoSeoMeta extends Struct.ComponentSchema {
     og_title: Schema.Attribute.String & Schema.Attribute.Required;
     schema: Schema.Attribute.JSON;
     title: Schema.Attribute.String & Schema.Attribute.Required;
-    twitter_description: Schema.Attribute.String & Schema.Attribute.Required;
+    twitter_description: Schema.Attribute.Text & Schema.Attribute.Required;
     twitter_title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }

@@ -34,7 +34,7 @@
       "required": true
     },
     "twitter_description": {
-      "type": "string",
+      "type": "text",
       "required": true
     }
   }
