@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_header_game_dropdowns",
+  "info": {
+    "displayName": "game_dropdown"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "game_links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "header.game-link-group"
+    }
+  }
+}

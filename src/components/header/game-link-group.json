@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_header_game_link_groups",
+  "info": {
+    "displayName": "game_link_group"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

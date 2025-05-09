@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_header_cashier_boxes",
+  "info": {
+    "displayName": "cashier_box",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "currency_text": {
+      "type": "string"
+    },
+    "currency_option": {
+      "displayName": "currency_option",
+      "type": "component",
+      "repeatable": true,
+      "component": "header.currency-option"
+    }
+  }
+}
