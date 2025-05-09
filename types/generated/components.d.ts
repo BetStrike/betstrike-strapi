@@ -34,6 +34,17 @@ export interface GeneralCarouselItem extends Struct.ComponentSchema {
   };
 }
 
+export interface GeneralInputField extends Struct.ComponentSchema {
+  collectionName: 'components_general_input_fields';
+  info: {
+    displayName: 'input_field';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    placeholder: Schema.Attribute.String;
+  };
+}
+
 export interface GeneralLink extends Struct.ComponentSchema {
   collectionName: 'components_general_links';
   info: {
@@ -54,6 +65,52 @@ export interface GeneralUrl extends Struct.ComponentSchema {
   };
   attributes: {
     url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface HeaderCashierBox extends Struct.ComponentSchema {
+  collectionName: 'components_header_cashier_boxes';
+  info: {
+    description: '';
+    displayName: 'cashier_box';
+  };
+  attributes: {
+    currency_option: Schema.Attribute.Component<'header.currency-option', true>;
+    currency_text: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface HeaderCurrencyOption extends Struct.ComponentSchema {
+  collectionName: 'components_header_currency_options';
+  info: {
+    displayName: 'currency_option';
+  };
+  attributes: {
+    option_name: Schema.Attribute.String;
+  };
+}
+
+export interface HeaderGameDropdown extends Struct.ComponentSchema {
+  collectionName: 'components_header_game_dropdowns';
+  info: {
+    displayName: 'game_dropdown';
+  };
+  attributes: {
+    game_links: Schema.Attribute.Component<'header.game-link-group', true>;
+    label: Schema.Attribute.String;
+  };
+}
+
+export interface HeaderGameLinkGroup extends Struct.ComponentSchema {
+  collectionName: 'components_header_game_link_groups';
+  info: {
+    displayName: 'game_link_group';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    url: Schema.Attribute.String;
   };
 }
 
@@ -81,8 +138,13 @@ declare module '@strapi/strapi' {
       'footer.link-group': FooterLinkGroup;
       'footer.row-link-group': FooterRowLinkGroup;
       'general.carousel-item': GeneralCarouselItem;
+      'general.input-field': GeneralInputField;
       'general.link': GeneralLink;
       'general.url': GeneralUrl;
+      'header.cashier-box': HeaderCashierBox;
+      'header.currency-option': HeaderCurrencyOption;
+      'header.game-dropdown': HeaderGameDropdown;
+      'header.game-link-group': HeaderGameLinkGroup;
       'seo.seo-meta': SeoSeoMeta;
     }
   }

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_general_input_fields",
+  "info": {
+    "displayName": "input_field"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "placeholder": {
+      "type": "string"
+    }
+  }
+}
