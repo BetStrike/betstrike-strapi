@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_chat_rain_pools",
+  "info": {
+    "displayName": "rain_pool",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "tip_rain_btn_label": {
+      "type": "string"
+    },
+    "rain_dialog": {
+      "displayName": "tip_rain_dialog",
+      "type": "component",
+      "repeatable": false,
+      "component": "chat.tip-rain-dialog"
+    },
+    "claim_rain_btn_label": {
+      "type": "string"
+    }
+  }
+}

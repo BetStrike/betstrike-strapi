@@ -478,6 +478,51 @@ export interface ApiAuthAuth extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiChatChat extends Struct.SingleTypeSchema {
+  collectionName: 'chats';
+  info: {
+    description: '';
+    displayName: 'chat';
+    pluralName: 'chats';
+    singularName: 'chat';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::chat.chat'>;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    message_input_field: Schema.Attribute.Component<
+      'general.input-field',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    rain_pool: Schema.Attribute.Component<'chat.rain-pool', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiConfigurationConfiguration extends Struct.SingleTypeSchema {
   collectionName: 'configurations';
   info: {
@@ -1232,6 +1277,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::auth.auth': ApiAuthAuth;
+      'api::chat.chat': ApiChatChat;
       'api::configuration.configuration': ApiConfigurationConfiguration;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;

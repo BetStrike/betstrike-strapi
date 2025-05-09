@@ -1,5 +1,38 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ChatRainPool extends Struct.ComponentSchema {
+  collectionName: 'components_chat_rain_pools';
+  info: {
+    description: '';
+    displayName: 'rain_pool';
+  };
+  attributes: {
+    claim_rain_btn_label: Schema.Attribute.String;
+    rain_dialog: Schema.Attribute.Component<'chat.tip-rain-dialog', false>;
+    tip_rain_btn_label: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ChatTipRainDialog extends Struct.ComponentSchema {
+  collectionName: 'components_chat_tip_rain_dialogs';
+  info: {
+    displayName: 'tip_rain_dialog';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    disclaimer: Schema.Attribute.Text;
+    tip_btn_label: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface FooterLinkGroup extends Struct.ComponentSchema {
   collectionName: 'components_footer_link_groups';
   info: {
@@ -135,6 +168,8 @@ export interface SeoSeoMeta extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'chat.rain-pool': ChatRainPool;
+      'chat.tip-rain-dialog': ChatTipRainDialog;
       'footer.link-group': FooterLinkGroup;
       'footer.row-link-group': FooterRowLinkGroup;
       'general.carousel-item': GeneralCarouselItem;
