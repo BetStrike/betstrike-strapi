@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_general_table_columns",
+  "info": {
+    "displayName": "table_column"
+  },
+  "options": {},
+  "attributes": {
+    "accesor": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    }
+  }
+}

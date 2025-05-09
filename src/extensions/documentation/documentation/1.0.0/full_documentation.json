@@ -19,7 +19,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-09T20:29:06.864Z"
+    "x-generation-date": "2025-05-09T21:23:26.901Z"
   },
   "servers": [
     {
@@ -6221,6 +6221,21 @@
                   "$ref": "#/components/schemas/GeneralCarouselItemComponent"
                 }
               },
+              "games_carousel": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/GeneralCarouselGameListComponent"
+                }
+              },
+              "view_all_btn_label": {
+                "type": "string"
+              },
+              "live_stream_carousel": {
+                "$ref": "#/components/schemas/GeneralLiveStreamCarouselComponent"
+              },
+              "bet_section": {
+                "$ref": "#/components/schemas/GeneralBetSectionComponent"
+              },
               "locale": {
                 "type": "string"
               },
@@ -6292,6 +6307,21 @@
               "$ref": "#/components/schemas/GeneralCarouselItemComponent"
             }
           },
+          "games_carousel": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GeneralCarouselGameListComponent"
+            }
+          },
+          "view_all_btn_label": {
+            "type": "string"
+          },
+          "live_stream_carousel": {
+            "$ref": "#/components/schemas/GeneralLiveStreamCarouselComponent"
+          },
+          "bet_section": {
+            "$ref": "#/components/schemas/GeneralBetSectionComponent"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -6345,6 +6375,21 @@
                   "items": {
                     "$ref": "#/components/schemas/GeneralCarouselItemComponent"
                   }
+                },
+                "games_carousel": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GeneralCarouselGameListComponent"
+                  }
+                },
+                "view_all_btn_label": {
+                  "type": "string"
+                },
+                "live_stream_carousel": {
+                  "$ref": "#/components/schemas/GeneralLiveStreamCarouselComponent"
+                },
+                "bet_section": {
+                  "$ref": "#/components/schemas/GeneralBetSectionComponent"
                 },
                 "createdAt": {
                   "type": "string",
@@ -6550,6 +6595,80 @@
           },
           "url": {
             "type": "string"
+          }
+        }
+      },
+      "GeneralCarouselGameListComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "item": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GeneralCarouselItemComponent"
+            }
+          }
+        }
+      },
+      "GeneralLiveStreamCarouselComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "live_stream_label": {
+            "type": "string"
+          },
+          "stream_live_label": {
+            "type": "string"
+          },
+          "number_watching_label": {
+            "type": "string"
+          }
+        }
+      },
+      "GeneralTableColumnComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "accesor": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          }
+        }
+      },
+      "GeneralBetSectionComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "all_tab_label": {
+            "type": "string"
+          },
+          "big_wins_tab_label": {
+            "type": "string"
+          },
+          "lucky_wins_tab_label": {
+            "type": "string"
+          },
+          "your_bet_tab_label": {
+            "type": "string"
+          },
+          "bet_table_column": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GeneralTableColumnComponent"
+            }
           }
         }
       },

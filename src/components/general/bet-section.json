@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_general_bet_sections",
+  "info": {
+    "displayName": "bet_section"
+  },
+  "options": {},
+  "attributes": {
+    "all_tab_label": {
+      "type": "string"
+    },
+    "big_wins_tab_label": {
+      "type": "string"
+    },
+    "lucky_wins_tab_label": {
+      "type": "string"
+    },
+    "your_bet_tab_label": {
+      "type": "string"
+    },
+    "bet_table_column": {
+      "displayName": "table_column",
+      "type": "component",
+      "repeatable": true,
+      "component": "general.table-column"
+    }
+  }
+}

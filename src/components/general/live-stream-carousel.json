@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_general_live_stream_carousels",
+  "info": {
+    "displayName": "live_stream_carousel"
+  },
+  "options": {},
+  "attributes": {
+    "live_stream_label": {
+      "type": "string"
+    },
+    "stream_live_label": {
+      "type": "string"
+    },
+    "number_watching_label": {
+      "type": "string"
+    }
+  }
+}

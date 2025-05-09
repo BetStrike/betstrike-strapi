@@ -55,6 +55,32 @@ export interface FooterRowLinkGroup extends Struct.ComponentSchema {
   };
 }
 
+export interface GeneralBetSection extends Struct.ComponentSchema {
+  collectionName: 'components_general_bet_sections';
+  info: {
+    displayName: 'bet_section';
+  };
+  attributes: {
+    all_tab_label: Schema.Attribute.String;
+    bet_table_column: Schema.Attribute.Component<'general.table-column', true>;
+    big_wins_tab_label: Schema.Attribute.String;
+    lucky_wins_tab_label: Schema.Attribute.String;
+    your_bet_tab_label: Schema.Attribute.String;
+  };
+}
+
+export interface GeneralCarouselGameList extends Struct.ComponentSchema {
+  collectionName: 'components_general_carousel_game_lists';
+  info: {
+    description: '';
+    displayName: 'carousel_game_list';
+  };
+  attributes: {
+    item: Schema.Attribute.Component<'general.carousel-item', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface GeneralCarouselItem extends Struct.ComponentSchema {
   collectionName: 'components_general_carousel_items';
   info: {
@@ -87,6 +113,29 @@ export interface GeneralLink extends Struct.ComponentSchema {
   attributes: {
     label: Schema.Attribute.String;
     url: Schema.Attribute.String;
+  };
+}
+
+export interface GeneralLiveStreamCarousel extends Struct.ComponentSchema {
+  collectionName: 'components_general_live_stream_carousels';
+  info: {
+    displayName: 'live_stream_carousel';
+  };
+  attributes: {
+    live_stream_label: Schema.Attribute.String;
+    number_watching_label: Schema.Attribute.String;
+    stream_live_label: Schema.Attribute.String;
+  };
+}
+
+export interface GeneralTableColumn extends Struct.ComponentSchema {
+  collectionName: 'components_general_table_columns';
+  info: {
+    displayName: 'table_column';
+  };
+  attributes: {
+    accesor: Schema.Attribute.String;
+    label: Schema.Attribute.String;
   };
 }
 
@@ -172,9 +221,13 @@ declare module '@strapi/strapi' {
       'chat.tip-rain-dialog': ChatTipRainDialog;
       'footer.link-group': FooterLinkGroup;
       'footer.row-link-group': FooterRowLinkGroup;
+      'general.bet-section': GeneralBetSection;
+      'general.carousel-game-list': GeneralCarouselGameList;
       'general.carousel-item': GeneralCarouselItem;
       'general.input-field': GeneralInputField;
       'general.link': GeneralLink;
+      'general.live-stream-carousel': GeneralLiveStreamCarousel;
+      'general.table-column': GeneralTableColumn;
       'general.url': GeneralUrl;
       'header.cashier-box': HeaderCashierBox;
       'header.currency-option': HeaderCurrencyOption;
