@@ -419,7 +419,7 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
   collectionName: 'footers';
   info: {
     description: '';
-    displayName: 'footer';
+    displayName: 'Footer';
     pluralName: 'footers';
     singularName: 'footer';
   };
@@ -432,7 +432,8 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    col_link_group: Schema.Attribute.Component<'footer.link-group', true> &
+    columns: Schema.Attribute.Component<'footer.column', true> &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -443,9 +444,27 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::footer.footer'>;
-    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
-    row_link_group: Schema.Attribute.Component<'footer.row-link-group', false>;
+    rights_text: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -469,22 +488,9 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    account_option_links: Schema.Attribute.Component<'general.link', true>;
-    cashier_box: Schema.Attribute.Component<'header.cashier-box', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    game_dropdown: Schema.Attribute.Component<'header.game-dropdown', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::header.header'>;
     login_btn_label: Schema.Attribute.String &
@@ -493,10 +499,6 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    navigation_links: Schema.Attribute.Component<
-      'footer.row-link-group',
-      false
-    >;
     publishedAt: Schema.Attribute.DateTime;
     register_btn_label: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
@@ -527,34 +529,10 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    bet_section: Schema.Attribute.Component<'general.bet-section', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     carousel: Schema.Attribute.Component<'general.carousel-item', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    games_carousel: Schema.Attribute.Component<
-      'general.carousel-game-list',
-      true
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    live_stream_carousel: Schema.Attribute.Component<
-      'general.live-stream-carousel',
-      false
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

@@ -16,21 +16,6 @@
     }
   },
   "attributes": {
-    "navigation_links": {
-      "type": "component",
-      "repeatable": false,
-      "component": "footer.row-link-group"
-    },
-    "cashier_box": {
-      "type": "component",
-      "repeatable": false,
-      "component": "header.cashier-box",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "login_btn_label": {
       "type": "string",
       "pluginOptions": {
@@ -41,22 +26,6 @@
     },
     "register_btn_label": {
       "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "account_option_links": {
-      "type": "component",
-      "repeatable": true,
-      "component": "general.link"
-    },
-    "game_dropdown": {
-      "displayName": "game_dropdown",
-      "type": "component",
-      "repeatable": false,
-      "component": "header.game-dropdown",
       "pluginOptions": {
         "i18n": {
           "localized": true

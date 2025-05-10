@@ -19,7 +19,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-10T01:05:20.478Z"
+    "x-generation-date": "2025-05-10T08:49:46.735Z"
   },
   "servers": [
     {
@@ -2415,6 +2415,11 @@
         ],
         "properties": {
           "data": {
+            "required": [
+              "logo",
+              "columns",
+              "rights_text"
+            ],
             "type": "object",
             "properties": {
               "logo": {
@@ -2428,14 +2433,14 @@
                 ],
                 "example": "string or id"
               },
-              "col_link_group": {
+              "columns": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/FooterLinkGroupComponent"
+                  "$ref": "#/components/schemas/FooterColumnComponent"
                 }
               },
-              "row_link_group": {
-                "$ref": "#/components/schemas/FooterRowLinkGroupComponent"
+              "rights_text": {
+                "type": "string"
               },
               "locale": {
                 "type": "string"
@@ -2495,6 +2500,11 @@
       },
       "Footer": {
         "type": "object",
+        "required": [
+          "logo",
+          "columns",
+          "rights_text"
+        ],
         "properties": {
           "id": {
             "type": "number"
@@ -3100,14 +3110,14 @@
               }
             }
           },
-          "col_link_group": {
+          "columns": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/FooterLinkGroupComponent"
+              "$ref": "#/components/schemas/FooterColumnComponent"
             }
           },
-          "row_link_group": {
-            "$ref": "#/components/schemas/FooterRowLinkGroupComponent"
+          "rights_text": {
+            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -3286,14 +3296,14 @@
                     }
                   }
                 },
-                "col_link_group": {
+                "columns": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/FooterLinkGroupComponent"
+                    "$ref": "#/components/schemas/FooterColumnComponent"
                   }
                 },
-                "row_link_group": {
-                  "$ref": "#/components/schemas/FooterRowLinkGroupComponent"
+                "rights_text": {
+                  "type": "string"
                 },
                 "createdAt": {
                   "type": "string",
@@ -3371,12 +3381,141 @@
           "label": {
             "type": "string"
           },
-          "url": {
+          "href": {
             "type": "string"
+          },
+          "icon": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "documentId": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {},
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number",
+                "format": "float"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {},
+              "related": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "documentId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "folder": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "documentId": {
+                    "type": "string"
+                  }
+                }
+              },
+              "folderPath": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "updatedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "publishedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "createdBy": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "documentId": {
+                    "type": "string"
+                  }
+                }
+              },
+              "updatedBy": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "documentId": {
+                    "type": "string"
+                  }
+                }
+              },
+              "locale": {
+                "type": "string"
+              },
+              "localizations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "documentId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       },
-      "FooterLinkGroupComponent": {
+      "FooterColumnComponent": {
         "type": "object",
         "properties": {
           "id": {
@@ -3384,20 +3523,6 @@
           },
           "title": {
             "type": "string"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/GeneralLinkComponent"
-            }
-          }
-        }
-      },
-      "FooterRowLinkGroupComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
           },
           "links": {
             "type": "array",
@@ -3416,26 +3541,11 @@
           "data": {
             "type": "object",
             "properties": {
-              "navigation_links": {
-                "$ref": "#/components/schemas/FooterRowLinkGroupComponent"
-              },
-              "cashier_box": {
-                "$ref": "#/components/schemas/HeaderCashierBoxComponent"
-              },
               "login_btn_label": {
                 "type": "string"
               },
               "register_btn_label": {
                 "type": "string"
-              },
-              "account_option_links": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/GeneralLinkComponent"
-                }
-              },
-              "game_dropdown": {
-                "$ref": "#/components/schemas/HeaderGameDropdownComponent"
               },
               "locale": {
                 "type": "string"
@@ -3502,26 +3612,11 @@
           "documentId": {
             "type": "string"
           },
-          "navigation_links": {
-            "$ref": "#/components/schemas/FooterRowLinkGroupComponent"
-          },
-          "cashier_box": {
-            "$ref": "#/components/schemas/HeaderCashierBoxComponent"
-          },
           "login_btn_label": {
             "type": "string"
           },
           "register_btn_label": {
             "type": "string"
-          },
-          "account_option_links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/GeneralLinkComponent"
-            }
-          },
-          "game_dropdown": {
-            "$ref": "#/components/schemas/HeaderGameDropdownComponent"
           },
           "createdAt": {
             "type": "string",
@@ -3823,26 +3918,11 @@
                 "documentId": {
                   "type": "string"
                 },
-                "navigation_links": {
-                  "$ref": "#/components/schemas/FooterRowLinkGroupComponent"
-                },
-                "cashier_box": {
-                  "$ref": "#/components/schemas/HeaderCashierBoxComponent"
-                },
                 "login_btn_label": {
                   "type": "string"
                 },
                 "register_btn_label": {
                   "type": "string"
-                },
-                "account_option_links": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/GeneralLinkComponent"
-                  }
-                },
-                "game_dropdown": {
-                  "$ref": "#/components/schemas/HeaderGameDropdownComponent"
                 },
                 "createdAt": {
                   "type": "string",
@@ -3911,71 +3991,6 @@
           }
         }
       },
-      "HeaderCurrencyOptionComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "option_name": {
-            "type": "string"
-          }
-        }
-      },
-      "HeaderCashierBoxComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "title": {
-            "type": "string"
-          },
-          "currency_text": {
-            "type": "string"
-          },
-          "currency_option": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/HeaderCurrencyOptionComponent"
-            }
-          }
-        }
-      },
-      "HeaderGameLinkGroupComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "title": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          }
-        }
-      },
-      "HeaderGameDropdownComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "label": {
-            "type": "string"
-          },
-          "game_links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/HeaderGameLinkGroupComponent"
-            }
-          }
-        }
-      },
       "HomepageRequest": {
         "type": "object",
         "required": [
@@ -3991,20 +4006,8 @@
                   "$ref": "#/components/schemas/GeneralCarouselItemComponent"
                 }
               },
-              "games_carousel": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/GeneralCarouselGameListComponent"
-                }
-              },
               "view_all_btn_label": {
                 "type": "string"
-              },
-              "live_stream_carousel": {
-                "$ref": "#/components/schemas/GeneralLiveStreamCarouselComponent"
-              },
-              "bet_section": {
-                "$ref": "#/components/schemas/GeneralBetSectionComponent"
               },
               "locale": {
                 "type": "string"
@@ -4077,20 +4080,8 @@
               "$ref": "#/components/schemas/GeneralCarouselItemComponent"
             }
           },
-          "games_carousel": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/GeneralCarouselGameListComponent"
-            }
-          },
           "view_all_btn_label": {
             "type": "string"
-          },
-          "live_stream_carousel": {
-            "$ref": "#/components/schemas/GeneralLiveStreamCarouselComponent"
-          },
-          "bet_section": {
-            "$ref": "#/components/schemas/GeneralBetSectionComponent"
           },
           "createdAt": {
             "type": "string",
@@ -4146,20 +4137,8 @@
                     "$ref": "#/components/schemas/GeneralCarouselItemComponent"
                   }
                 },
-                "games_carousel": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/GeneralCarouselGameListComponent"
-                  }
-                },
                 "view_all_btn_label": {
                   "type": "string"
-                },
-                "live_stream_carousel": {
-                  "$ref": "#/components/schemas/GeneralLiveStreamCarouselComponent"
-                },
-                "bet_section": {
-                  "$ref": "#/components/schemas/GeneralBetSectionComponent"
                 },
                 "createdAt": {
                   "type": "string",
@@ -4365,80 +4344,6 @@
           },
           "url": {
             "type": "string"
-          }
-        }
-      },
-      "GeneralCarouselGameListComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "title": {
-            "type": "string"
-          },
-          "item": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/GeneralCarouselItemComponent"
-            }
-          }
-        }
-      },
-      "GeneralLiveStreamCarouselComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "live_stream_label": {
-            "type": "string"
-          },
-          "stream_live_label": {
-            "type": "string"
-          },
-          "number_watching_label": {
-            "type": "string"
-          }
-        }
-      },
-      "GeneralTableColumnComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "accesor": {
-            "type": "string"
-          },
-          "label": {
-            "type": "string"
-          }
-        }
-      },
-      "GeneralBetSectionComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "all_tab_label": {
-            "type": "string"
-          },
-          "big_wins_tab_label": {
-            "type": "string"
-          },
-          "lucky_wins_tab_label": {
-            "type": "string"
-          },
-          "your_bet_tab_label": {
-            "type": "string"
-          },
-          "bet_table_column": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/GeneralTableColumnComponent"
-            }
           }
         }
       },

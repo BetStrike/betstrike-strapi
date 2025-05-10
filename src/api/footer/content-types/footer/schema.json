@@ -4,7 +4,7 @@
   "info": {
     "singularName": "footer",
     "pluralName": "footers",
-    "displayName": "footer",
+    "displayName": "Footer",
     "description": ""
   },
   "options": {
@@ -19,29 +19,41 @@
     "logo": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "col_link_group": {
-      "displayName": "link_group",
-      "type": "component",
-      "repeatable": true,
-      "component": "footer.link-group",
+        "videos"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "row_link_group": {
+    "columns": {
       "type": "component",
-      "repeatable": false,
-      "component": "footer.row-link-group"
+      "repeatable": true,
+      "component": "footer.column",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "rights_text": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
     }
   }
 }
