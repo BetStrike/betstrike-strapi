@@ -19,7 +19,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-11T04:47:09.103Z"
+    "x-generation-date": "2025-05-11T05:08:07.675Z"
   },
   "servers": [
     {
@@ -2418,7 +2418,8 @@
             "required": [
               "logo",
               "columns",
-              "rights_text"
+              "rights_text",
+              "footer_link"
             ],
             "type": "object",
             "properties": {
@@ -2441,6 +2442,12 @@
               },
               "rights_text": {
                 "type": "string"
+              },
+              "footer_link": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/GeneralNavlinkComponent"
+                }
               },
               "locale": {
                 "type": "string"
@@ -2503,7 +2510,8 @@
         "required": [
           "logo",
           "columns",
-          "rights_text"
+          "rights_text",
+          "footer_link"
         ],
         "properties": {
           "id": {
@@ -3119,6 +3127,12 @@
           "rights_text": {
             "type": "string"
           },
+          "footer_link": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GeneralNavlinkComponent"
+            }
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -3304,6 +3318,12 @@
                 },
                 "rights_text": {
                   "type": "string"
+                },
+                "footer_link": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GeneralNavlinkComponent"
+                  }
                 },
                 "createdAt": {
                   "type": "string",
@@ -3529,6 +3549,20 @@
             "items": {
               "$ref": "#/components/schemas/GeneralLinkComponent"
             }
+          }
+        }
+      },
+      "GeneralNavlinkComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "label": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string"
           }
         }
       },
@@ -3778,20 +3812,6 @@
           },
           "meta": {
             "type": "object"
-          }
-        }
-      },
-      "GeneralNavlinkComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "label": {
-            "type": "string"
-          },
-          "href": {
-            "type": "string"
           }
         }
       },
@@ -4102,9 +4122,6 @@
                   "$ref": "#/components/schemas/GeneralCarouselItemComponent"
                 }
               },
-              "view_all_btn_label": {
-                "type": "string"
-              },
               "locale": {
                 "type": "string"
               },
@@ -4176,9 +4193,6 @@
               "$ref": "#/components/schemas/GeneralCarouselItemComponent"
             }
           },
-          "view_all_btn_label": {
-            "type": "string"
-          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -4232,9 +4246,6 @@
                   "items": {
                     "$ref": "#/components/schemas/GeneralCarouselItemComponent"
                   }
-                },
-                "view_all_btn_label": {
-                  "type": "string"
                 },
                 "createdAt": {
                   "type": "string",

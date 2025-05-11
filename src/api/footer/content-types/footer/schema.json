@@ -54,6 +54,17 @@
         }
       },
       "required": true
+    },
+    "footer_link": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.navlink",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
     }
   }
 }
