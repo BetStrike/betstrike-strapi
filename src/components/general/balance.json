@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_general_balances",
+  "info": {
+    "displayName": "balance"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "balance_id": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

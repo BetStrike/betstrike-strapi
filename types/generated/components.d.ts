@@ -9,7 +9,19 @@ export interface FooterColumn extends Struct.ComponentSchema {
   attributes: {
     links: Schema.Attribute.Component<'general.link', true> &
       Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface GeneralBalance extends Struct.ComponentSchema {
+  collectionName: 'components_general_balances';
+  info: {
+    displayName: 'balance';
+  };
+  attributes: {
+    balance_id: Schema.Attribute.String & Schema.Attribute.Required;
+    icon: Schema.Attribute.Media<'images', true>;
+    label: Schema.Attribute.String;
   };
 }
 
@@ -25,6 +37,19 @@ export interface GeneralCarouselItem extends Struct.ComponentSchema {
   };
 }
 
+export interface GeneralGame extends Struct.ComponentSchema {
+  collectionName: 'components_general_games';
+  info: {
+    displayName: 'game';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    href: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images' | 'files'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface GeneralLink extends Struct.ComponentSchema {
   collectionName: 'components_general_links';
   info: {
@@ -34,6 +59,17 @@ export interface GeneralLink extends Struct.ComponentSchema {
   attributes: {
     href: Schema.Attribute.String & Schema.Attribute.Required;
     icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface GeneralNavlink extends Struct.ComponentSchema {
+  collectionName: 'components_general_navlinks';
+  info: {
+    displayName: 'navlink';
+  };
+  attributes: {
+    href: Schema.Attribute.String & Schema.Attribute.Required;
     label: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -71,8 +107,11 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'footer.column': FooterColumn;
+      'general.balance': GeneralBalance;
       'general.carousel-item': GeneralCarouselItem;
+      'general.game': GeneralGame;
       'general.link': GeneralLink;
+      'general.navlink': GeneralNavlink;
       'general.url': GeneralUrl;
       'seo.seo-meta': SeoSeoMeta;
     }

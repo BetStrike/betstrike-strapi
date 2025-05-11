@@ -16,16 +16,31 @@
     }
   },
   "attributes": {
-    "login_btn_label": {
-      "type": "string",
+    "navlinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.navlink",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "games_dropdown": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.game",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "register_btn_label": {
-      "type": "string",
+    "cashier_balance": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.balance",
       "pluginOptions": {
         "i18n": {
           "localized": true
