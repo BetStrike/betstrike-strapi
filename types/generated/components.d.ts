@@ -1,5 +1,66 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface EeatAbout extends Struct.ComponentSchema {
+  collectionName: 'components_eeat_abouts';
+  info: {
+    description: '';
+    displayName: 'about';
+  };
+  attributes: {
+    last_updated: Schema.Attribute.Date;
+    title: Schema.Attribute.String;
+    topics: Schema.Attribute.Component<'general.topic', true>;
+  };
+}
+
+export interface EeatAccessibility extends Struct.ComponentSchema {
+  collectionName: 'components_eeat_accessibilities';
+  info: {
+    displayName: 'Accessibility';
+  };
+  attributes: {
+    last_updated: Schema.Attribute.Date;
+    title: Schema.Attribute.String;
+    topics: Schema.Attribute.Component<'general.topic', true>;
+  };
+}
+
+export interface EeatCodeOfEthics extends Struct.ComponentSchema {
+  collectionName: 'components_eeat_code_of_ethics';
+  info: {
+    displayName: 'Code of Ethics';
+  };
+  attributes: {
+    last_updated: Schema.Attribute.Date;
+    title: Schema.Attribute.String;
+    topics: Schema.Attribute.Component<'general.topic', true>;
+  };
+}
+
+export interface EeatDisclaimer extends Struct.ComponentSchema {
+  collectionName: 'components_eeat_disclaimers';
+  info: {
+    displayName: 'Disclaimer';
+  };
+  attributes: {
+    last_updated: Schema.Attribute.Date;
+    title: Schema.Attribute.String;
+    topics: Schema.Attribute.Component<'general.topic', true>;
+  };
+}
+
+export interface EeatEditorialPolicies extends Struct.ComponentSchema {
+  collectionName: 'components_eeat_editorial_policies';
+  info: {
+    displayName: 'Editorial Policies';
+  };
+  attributes: {
+    last_updated: Schema.Attribute.Date;
+    title: Schema.Attribute.String;
+    topics: Schema.Attribute.Component<'general.topic', true>;
+  };
+}
+
 export interface FooterColumn extends Struct.ComponentSchema {
   collectionName: 'components_footer_columns';
   info: {
@@ -74,6 +135,24 @@ export interface GeneralNavlink extends Struct.ComponentSchema {
   };
 }
 
+export interface GeneralTopic extends Struct.ComponentSchema {
+  collectionName: 'components_general_topics';
+  info: {
+    description: '';
+    displayName: 'topic';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface GeneralUrl extends Struct.ComponentSchema {
   collectionName: 'components_general_urls';
   info: {
@@ -106,12 +185,18 @@ export interface SeoSeoMeta extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'eeat.about': EeatAbout;
+      'eeat.accessibility': EeatAccessibility;
+      'eeat.code-of-ethics': EeatCodeOfEthics;
+      'eeat.disclaimer': EeatDisclaimer;
+      'eeat.editorial-policies': EeatEditorialPolicies;
       'footer.column': FooterColumn;
       'general.balance': GeneralBalance;
       'general.carousel-item': GeneralCarouselItem;
       'general.game': GeneralGame;
       'general.link': GeneralLink;
       'general.navlink': GeneralNavlink;
+      'general.topic': GeneralTopic;
       'general.url': GeneralUrl;
       'seo.seo-meta': SeoSeoMeta;
     }

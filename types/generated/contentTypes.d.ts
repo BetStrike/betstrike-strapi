@@ -415,6 +415,39 @@ export interface ApiConfigurationConfiguration extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiEeatEeat extends Struct.SingleTypeSchema {
+  collectionName: 'eeats';
+  info: {
+    description: '';
+    displayName: 'EEAT';
+    pluralName: 'eeats';
+    singularName: 'eeat';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    about: Schema.Attribute.Component<'eeat.about', false>;
+    accessibility: Schema.Attribute.Component<'eeat.accessibility', false>;
+    code_of_ethics: Schema.Attribute.Component<'eeat.code-of-ethics', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    disclaimer: Schema.Attribute.Component<'eeat.disclaimer', false>;
+    editorial_policies: Schema.Attribute.Component<
+      'eeat.editorial-policies',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::eeat.eeat'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFooterFooter extends Struct.SingleTypeSchema {
   collectionName: 'footers';
   info: {
@@ -1115,6 +1148,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::configuration.configuration': ApiConfigurationConfiguration;
+      'api::eeat.eeat': ApiEeatEeat;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
       'api::homepage.homepage': ApiHomepageHomepage;
