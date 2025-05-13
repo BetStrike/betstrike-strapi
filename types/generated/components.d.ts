@@ -182,6 +182,109 @@ export interface GeneralUrl extends Struct.ComponentSchema {
   };
 }
 
+export interface LegalAmlPolicy extends Struct.ComponentSchema {
+  collectionName: 'components_legal_aml_policies';
+  info: {
+    displayName: 'AML Policy';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface LegalLicense extends Struct.ComponentSchema {
+  collectionName: 'components_legal_licenses';
+  info: {
+    displayName: 'License';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    text: Schema.Attribute.String;
+  };
+}
+
+export interface LegalPrivacyPolicy extends Struct.ComponentSchema {
+  collectionName: 'components_legal_privacy_policies';
+  info: {
+    displayName: 'privacy-policy';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface LegalProbavlyFair extends Struct.ComponentSchema {
+  collectionName: 'components_legal_probavly_fairs';
+  info: {
+    displayName: 'Probavly Fair';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface LegalResponsibleGaming extends Struct.ComponentSchema {
+  collectionName: 'components_legal_responsible_gamings';
+  info: {
+    description: '';
+    displayName: 'Responsible Gambling';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface LegalTermsOfService extends Struct.ComponentSchema {
+  collectionName: 'components_legal_terms_of_services';
+  info: {
+    displayName: 'Terms of Service';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SeoSeoMeta extends Struct.ComponentSchema {
   collectionName: 'components_seo_seo_metas';
   info: {
@@ -242,6 +345,12 @@ declare module '@strapi/strapi' {
       'general.navlink': GeneralNavlink;
       'general.topic': GeneralTopic;
       'general.url': GeneralUrl;
+      'legal.aml-policy': LegalAmlPolicy;
+      'legal.license': LegalLicense;
+      'legal.privacy-policy': LegalPrivacyPolicy;
+      'legal.probavly-fair': LegalProbavlyFair;
+      'legal.responsible-gaming': LegalResponsibleGaming;
+      'legal.terms-of-service': LegalTermsOfService;
       'seo.seo-meta': SeoSeoMeta;
       'welcome-bonus.step': WelcomeBonusStep;
       'welcome-bonus.step-description': WelcomeBonusStepDescription;

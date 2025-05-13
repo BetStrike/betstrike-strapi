@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_legal_licenses",
+  "info": {
+    "displayName": "License"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_legal_aml_policies",
+  "info": {
+    "displayName": "AML Policy"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

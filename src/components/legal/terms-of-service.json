@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_legal_terms_of_services",
+  "info": {
+    "displayName": "Terms of Service"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}
