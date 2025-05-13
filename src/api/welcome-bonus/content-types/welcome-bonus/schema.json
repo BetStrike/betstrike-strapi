@@ -16,16 +16,7 @@
     }
   },
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "step": {
+    "welcome_bonus_block": {
       "type": "component",
       "repeatable": true,
       "required": true,
@@ -34,15 +25,7 @@
           "localized": true
         }
       },
-      "component": "welcome-bonus.step"
-    },
-    "description": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "component": "welcome-bonus.block"
     }
   }
 }

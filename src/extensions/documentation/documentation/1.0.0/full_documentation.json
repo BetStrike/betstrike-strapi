@@ -19,7 +19,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-13T03:18:00.108Z"
+    "x-generation-date": "2025-05-13T05:36:41.447Z"
   },
   "servers": [
     {
@@ -9540,22 +9540,15 @@
         "properties": {
           "data": {
             "required": [
-              "title",
-              "step"
+              "welcome_bonus_block"
             ],
             "type": "object",
             "properties": {
-              "title": {
-                "type": "string"
-              },
-              "step": {
+              "welcome_bonus_block": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/WelcomeBonusStepComponent"
+                  "$ref": "#/components/schemas/WelcomeBonusBlockComponent"
                 }
-              },
-              "description": {
-                "type": "string"
               },
               "locale": {
                 "type": "string"
@@ -9616,8 +9609,7 @@
       "WelcomeBonus": {
         "type": "object",
         "required": [
-          "title",
-          "step"
+          "welcome_bonus_block"
         ],
         "properties": {
           "id": {
@@ -9626,17 +9618,11 @@
           "documentId": {
             "type": "string"
           },
-          "title": {
-            "type": "string"
-          },
-          "step": {
+          "welcome_bonus_block": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/WelcomeBonusStepComponent"
+              "$ref": "#/components/schemas/WelcomeBonusBlockComponent"
             }
-          },
-          "description": {
-            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -9686,17 +9672,11 @@
                 "documentId": {
                   "type": "string"
                 },
-                "title": {
-                  "type": "string"
-                },
-                "step": {
+                "welcome_bonus_block": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/WelcomeBonusStepComponent"
+                    "$ref": "#/components/schemas/WelcomeBonusBlockComponent"
                   }
-                },
-                "description": {
-                  "type": "string"
                 },
                 "createdAt": {
                   "type": "string",
@@ -9919,6 +9899,36 @@
             "items": {
               "$ref": "#/components/schemas/WelcomeBonusStepDescriptionComponent"
             }
+          }
+        }
+      },
+      "WelcomeBonusBlockComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "steppers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WelcomeBonusStepComponent"
+            }
+          },
+          "description": {
+            "type": "string"
+          },
+          "stepper_direction": {
+            "type": "string",
+            "enum": [
+              "horizontal",
+              "vertical"
+            ]
+          },
+          "login_btn": {
+            "type": "boolean"
           }
         }
       }

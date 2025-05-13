@@ -200,6 +200,24 @@ export interface SeoSeoMeta extends Struct.ComponentSchema {
   };
 }
 
+export interface WelcomeBonusBlock extends Struct.ComponentSchema {
+  collectionName: 'components_welcome_bonus_blocks';
+  info: {
+    description: '';
+    displayName: 'block';
+  };
+  attributes: {
+    description: Schema.Attribute.String & Schema.Attribute.Required;
+    login_btn: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    stepper_direction: Schema.Attribute.Enumeration<['horizontal', 'vertical']>;
+    steppers: Schema.Attribute.Component<'welcome-bonus.step', true> &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface WelcomeBonusStep extends Struct.ComponentSchema {
   collectionName: 'components_welcome_bonus_steps';
   info: {
@@ -243,6 +261,7 @@ declare module '@strapi/strapi' {
       'general.topic': GeneralTopic;
       'general.url': GeneralUrl;
       'seo.seo-meta': SeoSeoMeta;
+      'welcome-bonus.block': WelcomeBonusBlock;
       'welcome-bonus.step': WelcomeBonusStep;
       'welcome-bonus.step-description': WelcomeBonusStepDescription;
     }
