@@ -796,6 +796,46 @@ export interface ApiPageMetaPageMeta extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPolicyPolicy extends Struct.SingleTypeSchema {
+  collectionName: 'policies';
+  info: {
+    description: '';
+    displayName: 'Policy';
+    pluralName: 'policies';
+    singularName: 'policy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    aml_policy: Schema.Attribute.Component<'legal.aml-policy', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    license: Schema.Attribute.Component<'legal.license', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::policy.policy'
+    > &
+      Schema.Attribute.Private;
+    privacy_policy: Schema.Attribute.Component<'legal.privacy-policy', false>;
+    provably_fair: Schema.Attribute.Component<'legal.probavly-fair', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    responsible_gambling: Schema.Attribute.Component<
+      'legal.responsible-gaming',
+      false
+    >;
+    terms_of_service: Schema.Attribute.Component<
+      'legal.terms-of-service',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiWelcomeBonusWelcomeBonus extends Struct.SingleTypeSchema {
   collectionName: 'welcome_bonuses';
   info: {
@@ -835,46 +875,6 @@ export interface ApiWelcomeBonusWelcomeBonus extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-  };
-}
-
-export interface ApiPolicyPolicy extends Struct.SingleTypeSchema {
-  collectionName: 'policies';
-  info: {
-    description: '';
-    displayName: 'Policy';
-    pluralName: 'policies';
-    singularName: 'policy';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    aml_policy: Schema.Attribute.Component<'legal.aml-policy', false>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    license: Schema.Attribute.Component<'legal.license', false>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::policy.policy'
-    > &
-      Schema.Attribute.Private;
-    privacy_policy: Schema.Attribute.Component<'legal.privacy-policy', false>;
-    provably_fair: Schema.Attribute.Component<'legal.probavly-fair', false>;
-    publishedAt: Schema.Attribute.DateTime;
-    responsible_gambling: Schema.Attribute.Component<
-      'legal.responsible-gaming',
-      false
-    >;
-    terms_of_service: Schema.Attribute.Component<
-      'legal.terms-of-service',
-      false
-    >;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
   };
 }
 
@@ -1396,8 +1396,8 @@ declare module '@strapi/strapi' {
       'api::header.header': ApiHeaderHeader;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::page-meta.page-meta': ApiPageMetaPageMeta;
-      'api::welcome-bonus.welcome-bonus': ApiWelcomeBonusWelcomeBonus;
       'api::policy.policy': ApiPolicyPolicy;
+      'api::welcome-bonus.welcome-bonus': ApiWelcomeBonusWelcomeBonus;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
