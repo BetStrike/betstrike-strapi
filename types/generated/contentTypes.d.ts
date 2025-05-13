@@ -669,6 +669,34 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiGameGame extends Struct.SingleTypeSchema {
+  collectionName: 'games';
+  info: {
+    description: '';
+    displayName: 'game';
+    pluralName: 'games';
+    singularName: 'game';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    double: Schema.Attribute.Component<'games.double', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::game.game'> &
+      Schema.Attribute.Private;
+    mines: Schema.Attribute.Component<'games.mines', false>;
+    plinko: Schema.Attribute.Component<'games.plinko', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
   collectionName: 'headers';
   info: {
@@ -1393,6 +1421,7 @@ declare module '@strapi/strapi' {
       'api::eeat.eeat': ApiEeatEeat;
       'api::faq.faq': ApiFaqFaq;
       'api::footer.footer': ApiFooterFooter;
+      'api::game.game': ApiGameGame;
       'api::header.header': ApiHeaderHeader;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::page-meta.page-meta': ApiPageMetaPageMeta;

@@ -74,6 +74,55 @@ export interface FooterColumn extends Struct.ComponentSchema {
   };
 }
 
+export interface GamesDouble extends Struct.ComponentSchema {
+  collectionName: 'components_games_doubles';
+  info: {
+    displayName: 'double';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
+export interface GamesMines extends Struct.ComponentSchema {
+  collectionName: 'components_games_mines';
+  info: {
+    displayName: 'Mines';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
+export interface GamesPlinko extends Struct.ComponentSchema {
+  collectionName: 'components_games_plinkos';
+  info: {
+    description: '';
+    displayName: 'plinko';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface GeneralBalance extends Struct.ComponentSchema {
   collectionName: 'components_general_balances';
   info: {
@@ -355,6 +404,9 @@ declare module '@strapi/strapi' {
       'eeat.disclaimer': EeatDisclaimer;
       'eeat.editorial-policies': EeatEditorialPolicies;
       'footer.column': FooterColumn;
+      'games.double': GamesDouble;
+      'games.mines': GamesMines;
+      'games.plinko': GamesPlinko;
       'general.balance': GeneralBalance;
       'general.carousel-item': GeneralCarouselItem;
       'general.faq': GeneralFaq;
