@@ -1,0 +1,48 @@
+{
+  "kind": "singleType",
+  "collectionName": "welcome_bonuses",
+  "info": {
+    "singularName": "welcome-bonus",
+    "pluralName": "welcome-bonuses",
+    "displayName": "welcome_bonus",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "step": {
+      "type": "component",
+      "repeatable": true,
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "welcome-bonus.step"
+    },
+    "description": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}
