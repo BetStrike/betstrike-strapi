@@ -98,6 +98,24 @@ export interface GeneralCarouselItem extends Struct.ComponentSchema {
   };
 }
 
+export interface GeneralFaq extends Struct.ComponentSchema {
+  collectionName: 'components_general_faqs';
+  info: {
+    displayName: 'faq';
+  };
+  attributes: {
+    answer: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    question: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface GeneralGame extends Struct.ComponentSchema {
   collectionName: 'components_general_games';
   info: {
@@ -193,6 +211,7 @@ declare module '@strapi/strapi' {
       'footer.column': FooterColumn;
       'general.balance': GeneralBalance;
       'general.carousel-item': GeneralCarouselItem;
+      'general.faq': GeneralFaq;
       'general.game': GeneralGame;
       'general.link': GeneralLink;
       'general.navlink': GeneralNavlink;
