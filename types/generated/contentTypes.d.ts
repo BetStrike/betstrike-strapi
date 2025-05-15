@@ -495,6 +495,37 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBalanceBalance extends Struct.CollectionTypeSchema {
+  collectionName: 'balances';
+  info: {
+    description: '';
+    displayName: 'Balance';
+    pluralName: 'balances';
+    singularName: 'balance';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    balance_id: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    label: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::balance.balance'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiConfigurationConfiguration extends Struct.SingleTypeSchema {
   collectionName: 'configurations';
   info: {
@@ -717,12 +748,6 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    cashier_balance: Schema.Attribute.Component<'general.balance', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1420,6 +1445,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::article-category.article-category': ApiArticleCategoryArticleCategory;
       'api::article.article': ApiArticleArticle;
+      'api::balance.balance': ApiBalanceBalance;
       'api::configuration.configuration': ApiConfigurationConfiguration;
       'api::eeat.eeat': ApiEeatEeat;
       'api::faq.faq': ApiFaqFaq;

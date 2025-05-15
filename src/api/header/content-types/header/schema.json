@@ -36,16 +36,6 @@
           "localized": true
         }
       }
-    },
-    "cashier_balance": {
-      "type": "component",
-      "repeatable": true,
-      "component": "general.balance",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
     }
   }
 }
