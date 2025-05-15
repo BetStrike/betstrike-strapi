@@ -1,4 +1,9 @@
 module.exports = () => ({
+  'strapi-plugin-populate-deep': {
+    config: {
+      defaultDepth: 5
+    }
+  },
   documentation: {
     enabled: true,
     config: {

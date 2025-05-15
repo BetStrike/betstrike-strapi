@@ -4,7 +4,7 @@
   "info": {
     "singularName": "footer",
     "pluralName": "footers",
-    "displayName": "footer",
+    "displayName": "Footer",
     "description": ""
   },
   "options": {
@@ -19,61 +19,52 @@
     "logo": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "support_email": {
-      "type": "string",
+        "videos"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "feedback_label": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "disclaimer": {
-      "type": "blocks",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "copyright": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "link_group": {
-      "displayName": "link_group",
+    "columns": {
       "type": "component",
       "repeatable": true,
-      "component": "footer.link-group",
+      "component": "footer.column",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true
     },
-    "row_link_group": {
+    "rights_text": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "footer_link": {
       "type": "component",
-      "repeatable": false,
-      "component": "footer.row-link-group"
+      "repeatable": true,
+      "component": "general.navlink",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
     }
   }
 }

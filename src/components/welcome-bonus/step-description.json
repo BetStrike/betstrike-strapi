@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_welcome_bonus_step_descriptions",
+  "info": {
+    "displayName": "step_bonus",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

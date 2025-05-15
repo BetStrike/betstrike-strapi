@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "balances",
+  "info": {
+    "singularName": "balance",
+    "pluralName": "balances",
+    "displayName": "Balance",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "balance_id": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

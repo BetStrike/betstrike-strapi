@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_eeat_disclaimers",
+  "info": {
+    "displayName": "Disclaimer"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "topics": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.topic"
+    },
+    "last_updated": {
+      "type": "date"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_games_doubles",
+  "info": {
+    "displayName": "double"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

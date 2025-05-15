@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "games",
+  "info": {
+    "singularName": "game",
+    "pluralName": "games",
+    "displayName": "game",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "plinko": {
+      "type": "component",
+      "repeatable": false,
+      "component": "games.plinko"
+    },
+    "mines": {
+      "type": "component",
+      "repeatable": false,
+      "component": "games.mines"
+    },
+    "double": {
+      "type": "component",
+      "repeatable": false,
+      "component": "games.double"
+    }
+  }
+}

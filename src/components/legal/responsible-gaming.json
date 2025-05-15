@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_legal_responsible_gamings",
+  "info": {
+    "displayName": "Responsible Gambling",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

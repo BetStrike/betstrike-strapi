@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "eeats",
+  "info": {
+    "singularName": "eeat",
+    "pluralName": "eeats",
+    "displayName": "EEAT",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "about": {
+      "type": "component",
+      "repeatable": false,
+      "component": "eeat.about"
+    },
+    "accessibility": {
+      "type": "component",
+      "repeatable": false,
+      "component": "eeat.accessibility"
+    },
+    "code_of_ethics": {
+      "type": "component",
+      "repeatable": false,
+      "component": "eeat.code-of-ethics"
+    },
+    "disclaimer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "eeat.disclaimer"
+    },
+    "editorial_policies": {
+      "type": "component",
+      "repeatable": false,
+      "component": "eeat.editorial-policies"
+    }
+  }
+}

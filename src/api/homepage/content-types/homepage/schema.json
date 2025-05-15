@@ -21,47 +21,6 @@
       "type": "component",
       "repeatable": true,
       "component": "general.carousel-item"
-    },
-    "games_carousel": {
-      "displayName": "carousel_game_list",
-      "type": "component",
-      "repeatable": true,
-      "component": "general.carousel-game-list",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "view_all_btn_label": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "live_stream_carousel": {
-      "displayName": "live_stream_carousel",
-      "type": "component",
-      "repeatable": false,
-      "component": "general.live-stream-carousel",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "bet_section": {
-      "displayName": "bet_section",
-      "type": "component",
-      "repeatable": false,
-      "component": "general.bet-section",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
     }
   }
 }

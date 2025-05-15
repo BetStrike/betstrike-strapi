@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_eeat_editorial_policies",
+  "info": {
+    "displayName": "Editorial Policies"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "topics": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.topic"
+    },
+    "last_updated": {
+      "type": "date"
+    }
+  }
+}

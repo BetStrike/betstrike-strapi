@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "policies",
+  "info": {
+    "singularName": "policy",
+    "pluralName": "policies",
+    "displayName": "Policy",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "terms_of_service": {
+      "type": "component",
+      "repeatable": false,
+      "component": "legal.terms-of-service"
+    },
+    "provably_fair": {
+      "type": "component",
+      "repeatable": false,
+      "component": "legal.probavly-fair"
+    },
+    "privacy_policy": {
+      "type": "component",
+      "repeatable": false,
+      "component": "legal.privacy-policy"
+    },
+    "responsible_gambling": {
+      "type": "component",
+      "repeatable": false,
+      "component": "legal.responsible-gaming"
+    },
+    "aml_policy": {
+      "type": "component",
+      "repeatable": false,
+      "component": "legal.aml-policy"
+    },
+    "license": {
+      "type": "component",
+      "repeatable": false,
+      "component": "legal.license"
+    }
+  }
+}

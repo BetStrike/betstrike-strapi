@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_welcome_bonus_blocks",
+  "info": {
+    "displayName": "block",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "steppers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "welcome-bonus.step",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "stepper_direction": {
+      "type": "enumeration",
+      "enum": [
+        "horizontal",
+        "vertical"
+      ]
+    },
+    "login_btn": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}

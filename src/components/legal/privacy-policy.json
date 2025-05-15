@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_legal_privacy_policies",
+  "info": {
+    "displayName": "privacy-policy"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

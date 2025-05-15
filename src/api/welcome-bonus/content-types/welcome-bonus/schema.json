@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "welcome_bonuses",
+  "info": {
+    "singularName": "welcome-bonus",
+    "pluralName": "welcome-bonuses",
+    "displayName": "welcome_bonus",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "welcome_bonus_block": {
+      "type": "component",
+      "repeatable": true,
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "welcome-bonus.block"
+    }
+  }
+}

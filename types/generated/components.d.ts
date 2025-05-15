@@ -1,23 +1,83 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface ChatRainPool extends Struct.ComponentSchema {
-  collectionName: 'components_chat_rain_pools';
+export interface EeatAbout extends Struct.ComponentSchema {
+  collectionName: 'components_eeat_abouts';
   info: {
     description: '';
-    displayName: 'rain_pool';
+    displayName: 'about';
   };
   attributes: {
-    claim_rain_btn_label: Schema.Attribute.String;
-    rain_dialog: Schema.Attribute.Component<'chat.tip-rain-dialog', false>;
-    tip_rain_btn_label: Schema.Attribute.String;
+    last_updated: Schema.Attribute.Date;
+    title: Schema.Attribute.String;
+    topics: Schema.Attribute.Component<'general.topic', true>;
+  };
+}
+
+export interface EeatAccessibility extends Struct.ComponentSchema {
+  collectionName: 'components_eeat_accessibilities';
+  info: {
+    displayName: 'Accessibility';
+  };
+  attributes: {
+    last_updated: Schema.Attribute.Date;
+    title: Schema.Attribute.String;
+    topics: Schema.Attribute.Component<'general.topic', true>;
+  };
+}
+
+export interface EeatCodeOfEthics extends Struct.ComponentSchema {
+  collectionName: 'components_eeat_code_of_ethics';
+  info: {
+    displayName: 'Code of Ethics';
+  };
+  attributes: {
+    last_updated: Schema.Attribute.Date;
+    title: Schema.Attribute.String;
+    topics: Schema.Attribute.Component<'general.topic', true>;
+  };
+}
+
+export interface EeatDisclaimer extends Struct.ComponentSchema {
+  collectionName: 'components_eeat_disclaimers';
+  info: {
+    displayName: 'Disclaimer';
+  };
+  attributes: {
+    last_updated: Schema.Attribute.Date;
+    title: Schema.Attribute.String;
+    topics: Schema.Attribute.Component<'general.topic', true>;
+  };
+}
+
+export interface EeatEditorialPolicies extends Struct.ComponentSchema {
+  collectionName: 'components_eeat_editorial_policies';
+  info: {
+    displayName: 'Editorial Policies';
+  };
+  attributes: {
+    last_updated: Schema.Attribute.Date;
+    title: Schema.Attribute.String;
+    topics: Schema.Attribute.Component<'general.topic', true>;
+  };
+}
+
+export interface FooterColumn extends Struct.ComponentSchema {
+  collectionName: 'components_footer_columns';
+  info: {
+    description: '';
+    displayName: 'column';
+  };
+  attributes: {
+    links: Schema.Attribute.Component<'general.link', true> &
+      Schema.Attribute.Required;
     title: Schema.Attribute.String;
   };
 }
 
-export interface ChatTipRainDialog extends Struct.ComponentSchema {
-  collectionName: 'components_chat_tip_rain_dialogs';
+export interface GamesDouble extends Struct.ComponentSchema {
+  collectionName: 'components_games_doubles';
   info: {
-    displayName: 'tip_rain_dialog';
+    displayName: 'double';
   };
   attributes: {
     description: Schema.Attribute.RichText &
@@ -27,57 +87,51 @@ export interface ChatTipRainDialog extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
-    disclaimer: Schema.Attribute.Text;
-    tip_btn_label: Schema.Attribute.String;
-    title: Schema.Attribute.String;
   };
 }
 
-export interface FooterLinkGroup extends Struct.ComponentSchema {
-  collectionName: 'components_footer_link_groups';
+export interface GamesMines extends Struct.ComponentSchema {
+  collectionName: 'components_games_mines';
+  info: {
+    displayName: 'Mines';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
+export interface GamesPlinko extends Struct.ComponentSchema {
+  collectionName: 'components_games_plinkos';
   info: {
     description: '';
-    displayName: 'col_link_group';
+    displayName: 'plinko';
   };
   attributes: {
-    links: Schema.Attribute.Component<'general.link', true>;
-    title: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
   };
 }
 
-export interface FooterRowLinkGroup extends Struct.ComponentSchema {
-  collectionName: 'components_footer_row_link_groups';
+export interface GeneralBalance extends Struct.ComponentSchema {
+  collectionName: 'components_general_balances';
   info: {
-    displayName: 'row_link_group';
+    displayName: 'balance';
   };
   attributes: {
-    links: Schema.Attribute.Component<'general.link', true>;
-  };
-}
-
-export interface GeneralBetSection extends Struct.ComponentSchema {
-  collectionName: 'components_general_bet_sections';
-  info: {
-    displayName: 'bet_section';
-  };
-  attributes: {
-    all_tab_label: Schema.Attribute.String;
-    bet_table_column: Schema.Attribute.Component<'general.table-column', true>;
-    big_wins_tab_label: Schema.Attribute.String;
-    lucky_wins_tab_label: Schema.Attribute.String;
-    your_bet_tab_label: Schema.Attribute.String;
-  };
-}
-
-export interface GeneralCarouselGameList extends Struct.ComponentSchema {
-  collectionName: 'components_general_carousel_game_lists';
-  info: {
-    description: '';
-    displayName: 'carousel_game_list';
-  };
-  attributes: {
-    item: Schema.Attribute.Component<'general.carousel-item', true>;
-    title: Schema.Attribute.String;
+    balance_id: Schema.Attribute.String & Schema.Attribute.Required;
+    icon: Schema.Attribute.Media<'images', true>;
+    label: Schema.Attribute.String;
   };
 }
 
@@ -93,14 +147,34 @@ export interface GeneralCarouselItem extends Struct.ComponentSchema {
   };
 }
 
-export interface GeneralInputField extends Struct.ComponentSchema {
-  collectionName: 'components_general_input_fields';
+export interface GeneralFaq extends Struct.ComponentSchema {
+  collectionName: 'components_general_faqs';
   info: {
-    displayName: 'input_field';
+    displayName: 'faq';
   };
   attributes: {
-    label: Schema.Attribute.String;
-    placeholder: Schema.Attribute.String;
+    answer: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    question: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface GeneralGame extends Struct.ComponentSchema {
+  collectionName: 'components_general_games';
+  info: {
+    displayName: 'game';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    href: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images' | 'files'>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -111,31 +185,38 @@ export interface GeneralLink extends Struct.ComponentSchema {
     displayName: 'link';
   };
   attributes: {
-    label: Schema.Attribute.String;
-    url: Schema.Attribute.String;
+    href: Schema.Attribute.String & Schema.Attribute.Required;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
-export interface GeneralLiveStreamCarousel extends Struct.ComponentSchema {
-  collectionName: 'components_general_live_stream_carousels';
+export interface GeneralNavlink extends Struct.ComponentSchema {
+  collectionName: 'components_general_navlinks';
   info: {
-    displayName: 'live_stream_carousel';
+    displayName: 'navlink';
   };
   attributes: {
-    live_stream_label: Schema.Attribute.String;
-    number_watching_label: Schema.Attribute.String;
-    stream_live_label: Schema.Attribute.String;
+    href: Schema.Attribute.String & Schema.Attribute.Required;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
-export interface GeneralTableColumn extends Struct.ComponentSchema {
-  collectionName: 'components_general_table_columns';
+export interface GeneralTopic extends Struct.ComponentSchema {
+  collectionName: 'components_general_topics';
   info: {
-    displayName: 'table_column';
+    description: '';
+    displayName: 'topic';
   };
   attributes: {
-    accesor: Schema.Attribute.String;
-    label: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -150,49 +231,106 @@ export interface GeneralUrl extends Struct.ComponentSchema {
   };
 }
 
-export interface HeaderCashierBox extends Struct.ComponentSchema {
-  collectionName: 'components_header_cashier_boxes';
+export interface LegalAmlPolicy extends Struct.ComponentSchema {
+  collectionName: 'components_legal_aml_policies';
+  info: {
+    displayName: 'AML Policy';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface LegalLicense extends Struct.ComponentSchema {
+  collectionName: 'components_legal_licenses';
+  info: {
+    displayName: 'License';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    text: Schema.Attribute.String;
+  };
+}
+
+export interface LegalPrivacyPolicy extends Struct.ComponentSchema {
+  collectionName: 'components_legal_privacy_policies';
+  info: {
+    displayName: 'privacy-policy';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface LegalProbavlyFair extends Struct.ComponentSchema {
+  collectionName: 'components_legal_probavly_fairs';
+  info: {
+    displayName: 'Probavly Fair';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface LegalResponsibleGaming extends Struct.ComponentSchema {
+  collectionName: 'components_legal_responsible_gamings';
   info: {
     description: '';
-    displayName: 'cashier_box';
+    displayName: 'Responsible Gambling';
   };
   attributes: {
-    currency_option: Schema.Attribute.Component<'header.currency-option', true>;
-    currency_text: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     title: Schema.Attribute.String;
   };
 }
 
-export interface HeaderCurrencyOption extends Struct.ComponentSchema {
-  collectionName: 'components_header_currency_options';
+export interface LegalTermsOfService extends Struct.ComponentSchema {
+  collectionName: 'components_legal_terms_of_services';
   info: {
-    displayName: 'currency_option';
+    displayName: 'Terms of Service';
   };
   attributes: {
-    option_name: Schema.Attribute.String;
-  };
-}
-
-export interface HeaderGameDropdown extends Struct.ComponentSchema {
-  collectionName: 'components_header_game_dropdowns';
-  info: {
-    displayName: 'game_dropdown';
-  };
-  attributes: {
-    game_links: Schema.Attribute.Component<'header.game-link-group', true>;
-    label: Schema.Attribute.String;
-  };
-}
-
-export interface HeaderGameLinkGroup extends Struct.ComponentSchema {
-  collectionName: 'components_header_game_link_groups';
-  info: {
-    displayName: 'game_link_group';
-  };
-  attributes: {
-    description: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     title: Schema.Attribute.String;
-    url: Schema.Attribute.String;
   };
 }
 
@@ -214,26 +352,79 @@ export interface SeoSeoMeta extends Struct.ComponentSchema {
   };
 }
 
+export interface WelcomeBonusBlock extends Struct.ComponentSchema {
+  collectionName: 'components_welcome_bonus_blocks';
+  info: {
+    description: '';
+    displayName: 'block';
+  };
+  attributes: {
+    description: Schema.Attribute.String & Schema.Attribute.Required;
+    login_btn: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    stepper_direction: Schema.Attribute.Enumeration<['horizontal', 'vertical']>;
+    steppers: Schema.Attribute.Component<'welcome-bonus.step', true> &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface WelcomeBonusStep extends Struct.ComponentSchema {
+  collectionName: 'components_welcome_bonus_steps';
+  info: {
+    description: '';
+    displayName: 'step';
+  };
+  attributes: {
+    bonus: Schema.Attribute.Component<'welcome-bonus.step-description', true> &
+      Schema.Attribute.Required;
+    icon: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface WelcomeBonusStepDescription extends Struct.ComponentSchema {
+  collectionName: 'components_welcome_bonus_step_descriptions';
+  info: {
+    description: '';
+    displayName: 'step_bonus';
+  };
+  attributes: {
+    content: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'chat.rain-pool': ChatRainPool;
-      'chat.tip-rain-dialog': ChatTipRainDialog;
-      'footer.link-group': FooterLinkGroup;
-      'footer.row-link-group': FooterRowLinkGroup;
-      'general.bet-section': GeneralBetSection;
-      'general.carousel-game-list': GeneralCarouselGameList;
+      'eeat.about': EeatAbout;
+      'eeat.accessibility': EeatAccessibility;
+      'eeat.code-of-ethics': EeatCodeOfEthics;
+      'eeat.disclaimer': EeatDisclaimer;
+      'eeat.editorial-policies': EeatEditorialPolicies;
+      'footer.column': FooterColumn;
+      'games.double': GamesDouble;
+      'games.mines': GamesMines;
+      'games.plinko': GamesPlinko;
+      'general.balance': GeneralBalance;
       'general.carousel-item': GeneralCarouselItem;
-      'general.input-field': GeneralInputField;
+      'general.faq': GeneralFaq;
+      'general.game': GeneralGame;
       'general.link': GeneralLink;
-      'general.live-stream-carousel': GeneralLiveStreamCarousel;
-      'general.table-column': GeneralTableColumn;
+      'general.navlink': GeneralNavlink;
+      'general.topic': GeneralTopic;
       'general.url': GeneralUrl;
-      'header.cashier-box': HeaderCashierBox;
-      'header.currency-option': HeaderCurrencyOption;
-      'header.game-dropdown': HeaderGameDropdown;
-      'header.game-link-group': HeaderGameLinkGroup;
+      'legal.aml-policy': LegalAmlPolicy;
+      'legal.license': LegalLicense;
+      'legal.privacy-policy': LegalPrivacyPolicy;
+      'legal.probavly-fair': LegalProbavlyFair;
+      'legal.responsible-gaming': LegalResponsibleGaming;
+      'legal.terms-of-service': LegalTermsOfService;
       'seo.seo-meta': SeoSeoMeta;
+      'welcome-bonus.block': WelcomeBonusBlock;
+      'welcome-bonus.step': WelcomeBonusStep;
+      'welcome-bonus.step-description': WelcomeBonusStepDescription;
     }
   }
 }

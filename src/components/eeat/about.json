@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_eeat_abouts",
+  "info": {
+    "displayName": "about",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "topics": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.topic"
+    },
+    "last_updated": {
+      "type": "date"
+    }
+  }
+}

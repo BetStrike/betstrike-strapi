@@ -369,13 +369,13 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiAuthAuth extends Struct.SingleTypeSchema {
-  collectionName: 'auths';
+export interface ApiArticleCategoryArticleCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'article_categories';
   info: {
-    description: '';
-    displayName: 'Auth';
-    pluralName: 'auths';
-    singularName: 'auth';
+    displayName: 'Article Category';
+    pluralName: 'article-categories';
+    singularName: 'article-category';
   };
   options: {
     draftAndPublish: true;
@@ -386,78 +386,24 @@ export interface ApiAuthAuth extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    agree_terms_text: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    email_input_field: Schema.Attribute.Component<
-      'general.input-field',
-      false
-    > &
+    label: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    forgot_password_link: Schema.Attribute.Component<'general.link', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    google_provider_label: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::auth.auth'>;
-    login_in_tab_label: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    or_continue_label: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    password_input_field: Schema.Attribute.Component<
-      'general.input-field',
-      false
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    sign_in_btn_label: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    sign_up_btn_label: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    sign_up_email_input_field: Schema.Attribute.Component<
-      'general.input-field',
-      false
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::article-category.article-category'
     >;
-    sign_up_tab_label: Schema.Attribute.String &
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -466,25 +412,16 @@ export interface ApiAuthAuth extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    username_input_field: Schema.Attribute.Component<
-      'general.input-field',
-      false
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
   };
 }
 
-export interface ApiChatChat extends Struct.SingleTypeSchema {
-  collectionName: 'chats';
+export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
+  collectionName: 'articles';
   info: {
     description: '';
-    displayName: 'chat';
-    pluralName: 'chats';
-    singularName: 'chat';
+    displayName: 'Article';
+    pluralName: 'articles';
+    singularName: 'article';
   };
   options: {
     draftAndPublish: true;
@@ -495,28 +432,94 @@ export interface ApiChatChat extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
+    article_category: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::article-category.article-category'
+    >;
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    date: Schema.Attribute.Date &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::chat.chat'>;
-    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    message_input_field: Schema.Attribute.Component<
-      'general.input-field',
-      false
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::article.article'
+    >;
     publishedAt: Schema.Attribute.DateTime;
-    rain_pool: Schema.Attribute.Component<'chat.rain-pool', false> &
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBalanceBalance extends Struct.CollectionTypeSchema {
+  collectionName: 'balances';
+  info: {
+    description: '';
+    displayName: 'Balance';
+    pluralName: 'balances';
+    singularName: 'balance';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    balance_id: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    label: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::balance.balance'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -569,11 +572,79 @@ export interface ApiConfigurationConfiguration extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiEeatEeat extends Struct.SingleTypeSchema {
+  collectionName: 'eeats';
+  info: {
+    description: '';
+    displayName: 'EEAT';
+    pluralName: 'eeats';
+    singularName: 'eeat';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    about: Schema.Attribute.Component<'eeat.about', false>;
+    accessibility: Schema.Attribute.Component<'eeat.accessibility', false>;
+    code_of_ethics: Schema.Attribute.Component<'eeat.code-of-ethics', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    disclaimer: Schema.Attribute.Component<'eeat.disclaimer', false>;
+    editorial_policies: Schema.Attribute.Component<
+      'eeat.editorial-policies',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::eeat.eeat'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFaqFaq extends Struct.SingleTypeSchema {
+  collectionName: 'faqs';
+  info: {
+    displayName: 'FAQ';
+    pluralName: 'faqs';
+    singularName: 'faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
+    publishedAt: Schema.Attribute.DateTime;
+    question_block: Schema.Attribute.Component<'general.faq', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFooterFooter extends Struct.SingleTypeSchema {
   collectionName: 'footers';
   info: {
     description: '';
-    displayName: 'footer';
+    displayName: 'Footer';
     pluralName: 'footers';
     singularName: 'footer';
   };
@@ -586,7 +657,8 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    copyright: Schema.Attribute.String &
+    columns: Schema.Attribute.Component<'footer.column', true> &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -595,19 +667,8 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    disclaimer: Schema.Attribute.Blocks &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    feedback_label: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    link_group: Schema.Attribute.Component<'footer.link-group', true> &
+    footer_link: Schema.Attribute.Component<'general.navlink', true> &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -615,15 +676,55 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
       }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::footer.footer'>;
-    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    publishedAt: Schema.Attribute.DateTime;
-    row_link_group: Schema.Attribute.Component<'footer.row-link-group', false>;
-    support_email: Schema.Attribute.String &
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos'> &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
+    publishedAt: Schema.Attribute.DateTime;
+    rights_text: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGameGame extends Struct.SingleTypeSchema {
+  collectionName: 'games';
+  info: {
+    description: '';
+    displayName: 'game';
+    pluralName: 'games';
+    singularName: 'game';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    double: Schema.Attribute.Component<'games.double', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::game.game'> &
+      Schema.Attribute.Private;
+    mines: Schema.Attribute.Component<'games.mines', false>;
+    plinko: Schema.Attribute.Component<'games.plinko', false>;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -647,17 +748,10 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    account_option_links: Schema.Attribute.Component<'general.link', true>;
-    cashier_box: Schema.Attribute.Component<'header.cashier-box', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    game_dropdown: Schema.Attribute.Component<'header.game-dropdown', false> &
+    games_dropdown: Schema.Attribute.Component<'general.game', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -665,23 +759,14 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
       }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::header.header'>;
-    login_btn_label: Schema.Attribute.String &
+    navlinks: Schema.Attribute.Component<'general.navlink', true> &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    navigation_links: Schema.Attribute.Component<
-      'footer.row-link-group',
-      false
-    >;
     publishedAt: Schema.Attribute.DateTime;
-    register_btn_label: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -705,34 +790,10 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    bet_section: Schema.Attribute.Component<'general.bet-section', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     carousel: Schema.Attribute.Component<'general.carousel-item', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    games_carousel: Schema.Attribute.Component<
-      'general.carousel-game-list',
-      true
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    live_stream_carousel: Schema.Attribute.Component<
-      'general.live-stream-carousel',
-      false
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -742,12 +803,6 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    view_all_btn_label: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
   };
 }
 
@@ -794,6 +849,88 @@ export interface ApiPageMetaPageMeta extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPolicyPolicy extends Struct.SingleTypeSchema {
+  collectionName: 'policies';
+  info: {
+    description: '';
+    displayName: 'Policy';
+    pluralName: 'policies';
+    singularName: 'policy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    aml_policy: Schema.Attribute.Component<'legal.aml-policy', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    license: Schema.Attribute.Component<'legal.license', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::policy.policy'
+    > &
+      Schema.Attribute.Private;
+    privacy_policy: Schema.Attribute.Component<'legal.privacy-policy', false>;
+    provably_fair: Schema.Attribute.Component<'legal.probavly-fair', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    responsible_gambling: Schema.Attribute.Component<
+      'legal.responsible-gaming',
+      false
+    >;
+    terms_of_service: Schema.Attribute.Component<
+      'legal.terms-of-service',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiWelcomeBonusWelcomeBonus extends Struct.SingleTypeSchema {
+  collectionName: 'welcome_bonuses';
+  info: {
+    description: '';
+    displayName: 'welcome_bonus';
+    pluralName: 'welcome-bonuses';
+    singularName: 'welcome-bonus';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::welcome-bonus.welcome-bonus'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    welcome_bonus_block: Schema.Attribute.Component<
+      'welcome-bonus.block',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 
@@ -1306,13 +1443,19 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::auth.auth': ApiAuthAuth;
-      'api::chat.chat': ApiChatChat;
+      'api::article-category.article-category': ApiArticleCategoryArticleCategory;
+      'api::article.article': ApiArticleArticle;
+      'api::balance.balance': ApiBalanceBalance;
       'api::configuration.configuration': ApiConfigurationConfiguration;
+      'api::eeat.eeat': ApiEeatEeat;
+      'api::faq.faq': ApiFaqFaq;
       'api::footer.footer': ApiFooterFooter;
+      'api::game.game': ApiGameGame;
       'api::header.header': ApiHeaderHeader;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::page-meta.page-meta': ApiPageMetaPageMeta;
+      'api::policy.policy': ApiPolicyPolicy;
+      'api::welcome-bonus.welcome-bonus': ApiWelcomeBonusWelcomeBonus;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_games_mines",
+  "info": {
+    "displayName": "Mines"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_eeat_code_of_ethics",
+  "info": {
+    "displayName": "Code of Ethics"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "topics": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.topic"
+    },
+    "last_updated": {
+      "type": "date"
+    }
+  }
+}

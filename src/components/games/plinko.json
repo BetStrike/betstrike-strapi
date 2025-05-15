@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_games_plinkos",
+  "info": {
+    "displayName": "plinko",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}
