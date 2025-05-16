@@ -142,7 +142,8 @@ export interface GeneralCarouselItem extends Struct.ComponentSchema {
     displayName: 'carousel_item';
   };
   attributes: {
-    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    picture: Schema.Attribute.Component<'general.picture', false> &
+      Schema.Attribute.Required;
     url: Schema.Attribute.String;
   };
 }
