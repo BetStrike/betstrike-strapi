@@ -394,7 +394,7 @@ export interface WelcomeBonusStep extends Struct.ComponentSchema {
   attributes: {
     bonus: Schema.Attribute.Component<'welcome-bonus.step-description', true> &
       Schema.Attribute.Required;
-    icon: Schema.Attribute.Media<'images'>;
+    icon: Schema.Attribute.Component<'general.picture', false>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
