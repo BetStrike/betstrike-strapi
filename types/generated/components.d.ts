@@ -168,12 +168,14 @@ export interface GeneralFaq extends Struct.ComponentSchema {
 export interface GeneralGame extends Struct.ComponentSchema {
   collectionName: 'components_general_games';
   info: {
+    description: '';
     displayName: 'game';
   };
   attributes: {
     description: Schema.Attribute.String;
     href: Schema.Attribute.String;
-    icon: Schema.Attribute.Media<'images' | 'files'>;
+    icon: Schema.Attribute.Component<'general.picture', false> &
+      Schema.Attribute.Required;
     title: Schema.Attribute.String;
   };
 }
