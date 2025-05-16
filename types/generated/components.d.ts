@@ -202,6 +202,18 @@ export interface GeneralNavlink extends Struct.ComponentSchema {
   };
 }
 
+export interface GeneralPicture extends Struct.ComponentSchema {
+  collectionName: 'components_general_pictures';
+  info: {
+    description: '';
+    displayName: 'picture';
+  };
+  attributes: {
+    alt: Schema.Attribute.String & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+  };
+}
+
 export interface GeneralTopic extends Struct.ComponentSchema {
   collectionName: 'components_general_topics';
   info: {
@@ -413,6 +425,7 @@ declare module '@strapi/strapi' {
       'general.game': GeneralGame;
       'general.link': GeneralLink;
       'general.navlink': GeneralNavlink;
+      'general.picture': GeneralPicture;
       'general.topic': GeneralTopic;
       'general.url': GeneralUrl;
       'legal.aml-policy': LegalAmlPolicy;

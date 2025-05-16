@@ -676,13 +676,8 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
       }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::footer.footer'>;
-    logo: Schema.Attribute.Media<'images' | 'files' | 'videos'> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    logo: Schema.Attribute.Component<'general.picture', false> &
+      Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     rights_text: Schema.Attribute.RichText &
       Schema.Attribute.Required &
