@@ -142,7 +142,8 @@ export interface GeneralCarouselItem extends Struct.ComponentSchema {
     displayName: 'carousel_item';
   };
   attributes: {
-    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    picture: Schema.Attribute.Component<'general.picture', false> &
+      Schema.Attribute.Required;
     url: Schema.Attribute.String;
   };
 }
@@ -168,12 +169,14 @@ export interface GeneralFaq extends Struct.ComponentSchema {
 export interface GeneralGame extends Struct.ComponentSchema {
   collectionName: 'components_general_games';
   info: {
+    description: '';
     displayName: 'game';
   };
   attributes: {
     description: Schema.Attribute.String;
     href: Schema.Attribute.String;
-    icon: Schema.Attribute.Media<'images' | 'files'>;
+    icon: Schema.Attribute.Component<'general.picture', false> &
+      Schema.Attribute.Required;
     title: Schema.Attribute.String;
   };
 }
@@ -199,6 +202,17 @@ export interface GeneralNavlink extends Struct.ComponentSchema {
   attributes: {
     href: Schema.Attribute.String & Schema.Attribute.Required;
     label: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface GeneralPicture extends Struct.ComponentSchema {
+  collectionName: 'components_general_pictures';
+  info: {
+    description: '';
+    displayName: 'picture';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
   };
 }
 
@@ -379,7 +393,7 @@ export interface WelcomeBonusStep extends Struct.ComponentSchema {
   attributes: {
     bonus: Schema.Attribute.Component<'welcome-bonus.step-description', true> &
       Schema.Attribute.Required;
-    icon: Schema.Attribute.Media<'images'>;
+    icon: Schema.Attribute.Component<'general.picture', false>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -413,6 +427,7 @@ declare module '@strapi/strapi' {
       'general.game': GeneralGame;
       'general.link': GeneralLink;
       'general.navlink': GeneralNavlink;
+      'general.picture': GeneralPicture;
       'general.topic': GeneralTopic;
       'general.url': GeneralUrl;
       'legal.aml-policy': LegalAmlPolicy;
