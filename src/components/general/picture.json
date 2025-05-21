@@ -13,10 +13,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "alt": {
-      "type": "string",
-      "required": true
     }
   }
 }

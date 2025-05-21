@@ -212,7 +212,6 @@ export interface GeneralPicture extends Struct.ComponentSchema {
     displayName: 'picture';
   };
   attributes: {
-    alt: Schema.Attribute.String & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
   };
 }
