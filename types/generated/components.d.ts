@@ -166,6 +166,32 @@ export interface GeneralFaq extends Struct.ComponentSchema {
   };
 }
 
+export interface GeneralFeature extends Struct.ComponentSchema {
+  collectionName: 'components_general_features';
+  info: {
+    displayName: 'feature';
+  };
+  attributes: {
+    entry: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface GeneralFeatureBlock extends Struct.ComponentSchema {
+  collectionName: 'components_general_feature_blocks';
+  info: {
+    description: '';
+    displayName: 'feature-block';
+  };
+  attributes: {
+    feature: Schema.Attribute.Component<'general.feature', true> &
+      Schema.Attribute.Required;
+    group_name: Schema.Attribute.String & Schema.Attribute.Required;
+    level: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+  };
+}
+
 export interface GeneralGame extends Struct.ComponentSchema {
   collectionName: 'components_general_games';
   info: {
@@ -424,6 +450,8 @@ declare module '@strapi/strapi' {
       'general.balance': GeneralBalance;
       'general.carousel-item': GeneralCarouselItem;
       'general.faq': GeneralFaq;
+      'general.feature': GeneralFeature;
+      'general.feature-block': GeneralFeatureBlock;
       'general.game': GeneralGame;
       'general.link': GeneralLink;
       'general.navlink': GeneralNavlink;
