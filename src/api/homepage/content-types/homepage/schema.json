@@ -21,6 +21,17 @@
       "type": "component",
       "repeatable": true,
       "component": "general.carousel-item"
+    },
+    "verification_level": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.feature-block",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_general_features",
+  "info": {
+    "displayName": "feature"
+  },
+  "options": {},
+  "attributes": {
+    "entry": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

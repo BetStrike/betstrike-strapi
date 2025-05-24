@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_general_feature_blocks",
+  "info": {
+    "displayName": "feature-block",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "feature": {
+      "displayName": "feature",
+      "type": "component",
+      "repeatable": true,
+      "component": "general.feature",
+      "required": true
+    },
+    "group_name": {
+      "type": "string",
+      "required": true
+    },
+    "level": {
+      "type": "integer",
+      "unique": true,
+      "required": true
+    }
+  }
+}
