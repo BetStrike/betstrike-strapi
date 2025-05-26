@@ -19,7 +19,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-21T19:14:53.592Z"
+    "x-generation-date": "2025-05-24T20:22:06.783Z"
   },
   "servers": [
     {
@@ -9972,12 +9972,21 @@
         ],
         "properties": {
           "data": {
+            "required": [
+              "verification_level"
+            ],
             "type": "object",
             "properties": {
               "carousel": {
                 "type": "array",
                 "items": {
                   "$ref": "#/components/schemas/GeneralCarouselItemComponent"
+                }
+              },
+              "verification_level": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/GeneralFeatureBlockComponent"
                 }
               },
               "locale": {
@@ -10038,6 +10047,9 @@
       },
       "Homepage": {
         "type": "object",
+        "required": [
+          "verification_level"
+        ],
         "properties": {
           "id": {
             "type": "number"
@@ -10049,6 +10061,12 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/GeneralCarouselItemComponent"
+            }
+          },
+          "verification_level": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GeneralFeatureBlockComponent"
             }
           },
           "createdAt": {
@@ -10103,6 +10121,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/GeneralCarouselItemComponent"
+                  }
+                },
+                "verification_level": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GeneralFeatureBlockComponent"
                   }
                 },
                 "createdAt": {
@@ -10183,6 +10207,37 @@
           },
           "picture": {
             "$ref": "#/components/schemas/GeneralPictureComponent"
+          }
+        }
+      },
+      "GeneralFeatureComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "entry": {
+            "type": "string"
+          }
+        }
+      },
+      "GeneralFeatureBlockComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "feature": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GeneralFeatureComponent"
+            }
+          },
+          "group_name": {
+            "type": "string"
+          },
+          "level": {
+            "type": "integer"
           }
         }
       },
