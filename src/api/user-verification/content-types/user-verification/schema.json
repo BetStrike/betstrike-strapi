@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "user_verifications",
+  "info": {
+    "singularName": "user-verification",
+    "pluralName": "user-verifications",
+    "displayName": "user_verification"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "verification_level": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.feature-block",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}
