@@ -490,43 +490,6 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiAvatarAvatar extends Struct.CollectionTypeSchema {
-  collectionName: 'avatars';
-  info: {
-    displayName: 'Avatar';
-    pluralName: 'avatars';
-    singularName: 'avatar';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    avatar_id: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::avatar.avatar'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiBalanceBalance extends Struct.CollectionTypeSchema {
   collectionName: 'balances';
   info: {
@@ -1515,7 +1478,6 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::article-category.article-category': ApiArticleCategoryArticleCategory;
       'api::article.article': ApiArticleArticle;
-      'api::avatar.avatar': ApiAvatarAvatar;
       'api::balance.balance': ApiBalanceBalance;
       'api::configuration.configuration': ApiConfigurationConfiguration;
       'api::eeat.eeat': ApiEeatEeat;
