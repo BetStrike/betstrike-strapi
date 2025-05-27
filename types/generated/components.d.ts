@@ -186,9 +186,8 @@ export interface GeneralFeatureBlock extends Struct.ComponentSchema {
     feature: Schema.Attribute.Component<'general.feature', true> &
       Schema.Attribute.Required;
     group_name: Schema.Attribute.String & Schema.Attribute.Required;
-    level: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
+    level: Schema.Attribute.Enumeration<['MINIMUM', 'PARTIAL', 'FULL']> &
+      Schema.Attribute.Required;
   };
 }
 

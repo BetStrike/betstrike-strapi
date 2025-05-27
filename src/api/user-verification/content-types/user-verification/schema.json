@@ -4,7 +4,8 @@
   "info": {
     "singularName": "user-verification",
     "pluralName": "user-verifications",
-    "displayName": "user_verification"
+    "displayName": "User Verification",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

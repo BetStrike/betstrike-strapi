@@ -18,8 +18,12 @@
       "required": true
     },
     "level": {
-      "type": "integer",
-      "unique": true,
+      "type": "enumeration",
+      "enum": [
+        "MINIMUM",
+        "PARTIAL",
+        "FULL"
+      ],
       "required": true
     }
   }
