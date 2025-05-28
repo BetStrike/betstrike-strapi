@@ -758,6 +758,7 @@ export interface ApiGameGame extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     releaseDate: Schema.Attribute.Date & Schema.Attribute.Required;
     rtp: Schema.Attribute.Float;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     type: Schema.Attribute.Enumeration<
       ['ORIGINAL', 'LIVE_GAME', 'SLOTS', 'GAME_SHOW']
