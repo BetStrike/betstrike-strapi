@@ -61,6 +61,10 @@
       "type": "uid",
       "targetField": "title",
       "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
     }
   }
 }
