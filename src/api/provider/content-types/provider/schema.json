@@ -1,0 +1,36 @@
+{
+    "collectionName": "providers",
+    "info": {
+      "singularName": "provider",
+      "pluralName": "providers",
+      "displayName": "Provider",
+      "description": ""
+    },
+    "options": {
+      "draftAndPublish": false
+    },
+    "attributes": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "slug": {
+        "type": "uid",
+        "targetField": "name",
+        "required": true
+      },
+      "image": {
+        "type": "media",
+        "multiple": false,
+        "required": false,
+        "allowedTypes": ["images"]
+      },
+      "games": {
+        "type": "relation",
+        "relation": "oneToMany",
+        "target": "api::game.game",
+        "mappedBy": "provider"
+      }
+    }
+  }
+  

@@ -1,30 +1,51 @@
 {
-  "kind": "singleType",
   "collectionName": "games",
   "info": {
     "singularName": "game",
     "pluralName": "games",
-    "displayName": "game",
+    "displayName": "Game",
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "attributes": {
-    "plinko": {
-      "type": "component",
-      "repeatable": false,
-      "component": "games.plinko"
+    "title": {
+      "type": "string",
+      "required": true
     },
-    "mines": {
-      "type": "component",
-      "repeatable": false,
-      "component": "games.mines"
+    "provider": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::provider.provider",
+      "inversedBy": "games"
     },
-    "double": {
-      "type": "component",
-      "repeatable": false,
-      "component": "games.double"
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "popularLevel": {
+      "type": "integer",
+      "required": true
+    },
+    "rtp": {
+      "type": "float",
+      "required": false
+    },
+    "releaseDate": {
+      "type": "date",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["ORIGINAL", "LIVE_GAME", "SLOTS", "GAME_SHOW"],
+      "required": true
     }
   }
 }

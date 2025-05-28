@@ -693,28 +693,36 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiGameGame extends Struct.SingleTypeSchema {
+export interface ApiGameGame extends Struct.CollectionTypeSchema {
   collectionName: 'games';
   info: {
     description: '';
-    displayName: 'game';
+    displayName: 'Game';
     pluralName: 'games';
     singularName: 'game';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
+    coverImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    double: Schema.Attribute.Component<'games.double', false>;
+    description: Schema.Attribute.RichText & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::game.game'> &
       Schema.Attribute.Private;
-    mines: Schema.Attribute.Component<'games.mines', false>;
-    plinko: Schema.Attribute.Component<'games.plinko', false>;
+    popularLevel: Schema.Attribute.Integer & Schema.Attribute.Required;
+    provider: Schema.Attribute.Relation<'manyToOne', 'api::provider.provider'>;
     publishedAt: Schema.Attribute.DateTime;
+    releaseDate: Schema.Attribute.Date & Schema.Attribute.Required;
+    rtp: Schema.Attribute.Float;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<
+      ['ORIGINAL', 'LIVE_GAME', 'SLOTS', 'GAME_SHOW']
+    > &
+      Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -876,6 +884,38 @@ export interface ApiPolicyPolicy extends Struct.SingleTypeSchema {
       'legal.terms-of-service',
       false
     >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProviderProvider extends Struct.CollectionTypeSchema {
+  collectionName: 'providers';
+  info: {
+    description: '';
+    displayName: 'Provider';
+    pluralName: 'providers';
+    singularName: 'provider';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    games: Schema.Attribute.Relation<'oneToMany', 'api::game.game'>;
+    image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::provider.provider'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1488,6 +1528,7 @@ declare module '@strapi/strapi' {
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::page-meta.page-meta': ApiPageMetaPageMeta;
       'api::policy.policy': ApiPolicyPolicy;
+      'api::provider.provider': ApiProviderProvider;
       'api::user-verification.user-verification': ApiUserVerificationUserVerification;
       'api::welcome-bonus.welcome-bonus': ApiWelcomeBonusWelcomeBonus;
       'plugin::content-releases.release': PluginContentReleasesRelease;
