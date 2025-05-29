@@ -1,13 +1,11 @@
 {
   "collectionName": "components_legal_terms_of_services",
   "info": {
-    "displayName": "Terms of Service"
+    "displayName": "Terms of Service",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
     "description": {
       "type": "customField",
       "options": {

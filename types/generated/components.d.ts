@@ -293,6 +293,7 @@ export interface GeneralUrl extends Struct.ComponentSchema {
 export interface LegalAmlPolicy extends Struct.ComponentSchema {
   collectionName: 'components_legal_aml_policies';
   info: {
+    description: '';
     displayName: 'AML Policy';
   };
   attributes: {
@@ -303,13 +304,29 @@ export interface LegalAmlPolicy extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
-    title: Schema.Attribute.String;
+  };
+}
+
+export interface LegalComplaintsPolicy extends Struct.ComponentSchema {
+  collectionName: 'components_legal_complaints_policies';
+  info: {
+    displayName: 'complaints_policy';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
   };
 }
 
 export interface LegalLicense extends Struct.ComponentSchema {
   collectionName: 'components_legal_licenses';
   info: {
+    description: '';
     displayName: 'License';
   };
   attributes: {
@@ -320,13 +337,13 @@ export interface LegalLicense extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
-    text: Schema.Attribute.String;
   };
 }
 
 export interface LegalPrivacyPolicy extends Struct.ComponentSchema {
   collectionName: 'components_legal_privacy_policies';
   info: {
+    description: '';
     displayName: 'privacy-policy';
   };
   attributes: {
@@ -337,13 +354,13 @@ export interface LegalPrivacyPolicy extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
-    title: Schema.Attribute.String;
   };
 }
 
 export interface LegalProbavlyFair extends Struct.ComponentSchema {
   collectionName: 'components_legal_probavly_fairs';
   info: {
+    description: '';
     displayName: 'Probavly Fair';
   };
   attributes: {
@@ -354,7 +371,6 @@ export interface LegalProbavlyFair extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -372,13 +388,13 @@ export interface LegalResponsibleGaming extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
-    title: Schema.Attribute.String;
   };
 }
 
 export interface LegalTermsOfService extends Struct.ComponentSchema {
   collectionName: 'components_legal_terms_of_services';
   info: {
+    description: '';
     displayName: 'Terms of Service';
   };
   attributes: {
@@ -389,7 +405,6 @@ export interface LegalTermsOfService extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -480,6 +495,7 @@ declare module '@strapi/strapi' {
       'general.topic': GeneralTopic;
       'general.url': GeneralUrl;
       'legal.aml-policy': LegalAmlPolicy;
+      'legal.complaints-policy': LegalComplaintsPolicy;
       'legal.license': LegalLicense;
       'legal.privacy-policy': LegalPrivacyPolicy;
       'legal.probavly-fair': LegalProbavlyFair;

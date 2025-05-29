@@ -40,6 +40,12 @@
       "type": "component",
       "repeatable": false,
       "component": "legal.license"
+    },
+    "complaints_policy": {
+      "displayName": "complaints_policy",
+      "type": "component",
+      "repeatable": false,
+      "component": "legal.complaints-policy"
     }
   }
 }

@@ -1,13 +1,11 @@
 {
   "collectionName": "components_legal_privacy_policies",
   "info": {
-    "displayName": "privacy-policy"
+    "displayName": "privacy-policy",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
     "description": {
       "type": "customField",
       "options": {

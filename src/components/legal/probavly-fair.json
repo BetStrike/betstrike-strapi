@@ -1,13 +1,11 @@
 {
   "collectionName": "components_legal_probavly_fairs",
   "info": {
-    "displayName": "Probavly Fair"
+    "displayName": "Probavly Fair",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
     "description": {
       "type": "customField",
       "options": {

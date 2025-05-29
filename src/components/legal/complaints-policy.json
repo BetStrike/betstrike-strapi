@@ -1,8 +1,7 @@
 {
-  "collectionName": "components_legal_responsible_gamings",
+  "collectionName": "components_legal_complaints_policies",
   "info": {
-    "displayName": "Responsible Gambling",
-    "description": ""
+    "displayName": "complaints_policy"
   },
   "options": {},
   "attributes": {

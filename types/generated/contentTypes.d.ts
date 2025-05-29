@@ -933,6 +933,10 @@ export interface ApiPolicyPolicy extends Struct.SingleTypeSchema {
   };
   attributes: {
     aml_policy: Schema.Attribute.Component<'legal.aml-policy', false>;
+    complaints_policy: Schema.Attribute.Component<
+      'legal.complaints-policy',
+      false
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

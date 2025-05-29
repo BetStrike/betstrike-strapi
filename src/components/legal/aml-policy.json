@@ -1,13 +1,11 @@
 {
   "collectionName": "components_legal_aml_policies",
   "info": {
-    "displayName": "AML Policy"
+    "displayName": "AML Policy",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
     "description": {
       "type": "customField",
       "options": {

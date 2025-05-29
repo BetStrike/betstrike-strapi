@@ -19,7 +19,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-29T00:47:10.138Z"
+    "x-generation-date": "2025-05-29T14:50:57.417Z"
   },
   "servers": [
     {
@@ -14216,6 +14216,9 @@
               "license": {
                 "$ref": "#/components/schemas/LegalLicenseComponent"
               },
+              "complaints_policy": {
+                "$ref": "#/components/schemas/LegalComplaintsPolicyComponent"
+              },
               "locale": {
                 "type": "string"
               },
@@ -14298,6 +14301,9 @@
           },
           "license": {
             "$ref": "#/components/schemas/LegalLicenseComponent"
+          },
+          "complaints_policy": {
+            "$ref": "#/components/schemas/LegalComplaintsPolicyComponent"
           },
           "createdAt": {
             "type": "string",
@@ -14617,6 +14623,9 @@
                 "license": {
                   "$ref": "#/components/schemas/LegalLicenseComponent"
                 },
+                "complaints_policy": {
+                  "$ref": "#/components/schemas/LegalComplaintsPolicyComponent"
+                },
                 "createdAt": {
                   "type": "string",
                   "format": "date-time"
@@ -14690,9 +14699,6 @@
           "id": {
             "type": "number"
           },
-          "title": {
-            "type": "string"
-          },
           "description": {
             "type": "string"
           }
@@ -14703,9 +14709,6 @@
         "properties": {
           "id": {
             "type": "number"
-          },
-          "title": {
-            "type": "string"
           },
           "description": {
             "type": "string"
@@ -14718,9 +14721,6 @@
           "id": {
             "type": "number"
           },
-          "title": {
-            "type": "string"
-          },
           "description": {
             "type": "string"
           }
@@ -14731,9 +14731,6 @@
         "properties": {
           "id": {
             "type": "number"
-          },
-          "title": {
-            "type": "string"
           },
           "description": {
             "type": "string"
@@ -14746,9 +14743,6 @@
           "id": {
             "type": "number"
           },
-          "title": {
-            "type": "string"
-          },
           "description": {
             "type": "string"
           }
@@ -14760,8 +14754,16 @@
           "id": {
             "type": "number"
           },
-          "text": {
+          "description": {
             "type": "string"
+          }
+        }
+      },
+      "LegalComplaintsPolicyComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
           },
           "description": {
             "type": "string"

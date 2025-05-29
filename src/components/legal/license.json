@@ -1,13 +1,11 @@
 {
   "collectionName": "components_legal_licenses",
   "info": {
-    "displayName": "License"
+    "displayName": "License",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "text": {
-      "type": "string"
-    },
     "description": {
       "type": "customField",
       "options": {
