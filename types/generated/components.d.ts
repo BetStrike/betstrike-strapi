@@ -1,5 +1,25 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AuthSignIn extends Struct.ComponentSchema {
+  collectionName: 'components_auth_sign_ins';
+  info: {
+    displayName: 'Sign in';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+  };
+}
+
+export interface AuthSignUp extends Struct.ComponentSchema {
+  collectionName: 'components_auth_sign_ups';
+  info: {
+    displayName: 'Sign up';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+  };
+}
+
 export interface EeatAbout extends Struct.ComponentSchema {
   collectionName: 'components_eeat_abouts';
   info: {
@@ -437,6 +457,8 @@ export interface WelcomeBonusStepDescription extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'auth.sign-in': AuthSignIn;
+      'auth.sign-up': AuthSignUp;
       'eeat.about': EeatAbout;
       'eeat.accessibility': EeatAccessibility;
       'eeat.code-of-ethics': EeatCodeOfEthics;

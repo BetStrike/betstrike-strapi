@@ -490,6 +490,34 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAuthAuth extends Struct.SingleTypeSchema {
+  collectionName: 'auths';
+  info: {
+    displayName: 'Auth';
+    pluralName: 'auths';
+    singularName: 'auth';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::auth.auth'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    signin: Schema.Attribute.Component<'auth.sign-in', false> &
+      Schema.Attribute.Required;
+    signup: Schema.Attribute.Component<'auth.sign-up', false> &
+      Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBalanceBalance extends Struct.CollectionTypeSchema {
   collectionName: 'balances';
   info: {
@@ -1528,6 +1556,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::article-category.article-category': ApiArticleCategoryArticleCategory;
       'api::article.article': ApiArticleArticle;
+      'api::auth.auth': ApiAuthAuth;
       'api::balance.balance': ApiBalanceBalance;
       'api::configuration.configuration': ApiConfigurationConfiguration;
       'api::eeat.eeat': ApiEeatEeat;

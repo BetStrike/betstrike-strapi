@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_auth_sign_ins",
+  "info": {
+    "displayName": "Sign in"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

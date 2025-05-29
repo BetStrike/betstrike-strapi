@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "auths",
+  "info": {
+    "singularName": "auth",
+    "pluralName": "auths",
+    "displayName": "Auth"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "signin": {
+      "displayName": "Sign in",
+      "type": "component",
+      "repeatable": false,
+      "component": "auth.sign-in",
+      "required": true
+    },
+    "signup": {
+      "displayName": "Sign up",
+      "type": "component",
+      "repeatable": false,
+      "component": "auth.sign-up",
+      "required": true
+    }
+  }
+}
