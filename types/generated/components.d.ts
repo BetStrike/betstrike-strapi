@@ -20,6 +20,33 @@ export interface AuthSignUp extends Struct.ComponentSchema {
   };
 }
 
+export interface CashierCryptoDeposit extends Struct.ComponentSchema {
+  collectionName: 'components_cashier_crypto_deposits';
+  info: {
+    description: '';
+    displayName: 'Crypto Deposit';
+  };
+  attributes: {
+    crypto_asset: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::crypto-asset.crypto-asset'
+    >;
+  };
+}
+
+export interface CashierCryptoWithdraw extends Struct.ComponentSchema {
+  collectionName: 'components_cashier_crypto_withdraws';
+  info: {
+    displayName: 'Crypto Withdraw';
+  };
+  attributes: {
+    crypto_asset: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::crypto-asset.crypto-asset'
+    >;
+  };
+}
+
 export interface EeatAbout extends Struct.ComponentSchema {
   collectionName: 'components_eeat_abouts';
   info: {
@@ -474,6 +501,8 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'auth.sign-in': AuthSignIn;
       'auth.sign-up': AuthSignUp;
+      'cashier.crypto-deposit': CashierCryptoDeposit;
+      'cashier.crypto-withdraw': CashierCryptoWithdraw;
       'eeat.about': EeatAbout;
       'eeat.accessibility': EeatAccessibility;
       'eeat.code-of-ethics': EeatCodeOfEthics;

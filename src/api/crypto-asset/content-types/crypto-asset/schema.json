@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "crypto_assets",
+  "info": {
+    "singularName": "crypto-asset",
+    "pluralName": "crypto-assets",
+    "displayName": "Crypto Asset",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "internal_id": {
+      "type": "uid",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "minimum_deposit_amount": {
+      "type": "float"
+    },
+    "active": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

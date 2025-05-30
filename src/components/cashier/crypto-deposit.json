@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_cashier_crypto_deposits",
+  "info": {
+    "displayName": "Crypto Deposit",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "crypto_asset": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::crypto-asset.crypto-asset"
+    }
+  }
+}

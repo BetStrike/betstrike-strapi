@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_cashier_crypto_withdraws",
+  "info": {
+    "displayName": "Crypto Withdraw"
+  },
+  "options": {},
+  "attributes": {
+    "crypto_asset": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::crypto-asset.crypto-asset"
+    }
+  }
+}

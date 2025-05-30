@@ -549,6 +549,41 @@ export interface ApiBalanceBalance extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCashierCashier extends Struct.SingleTypeSchema {
+  collectionName: 'cashiers';
+  info: {
+    description: '';
+    displayName: 'Cashier';
+    pluralName: 'cashiers';
+    singularName: 'cashier';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    crypto_deposit: Schema.Attribute.Component<'cashier.crypto-deposit', true> &
+      Schema.Attribute.Required;
+    crypto_withdraws: Schema.Attribute.Component<
+      'cashier.crypto-withdraw',
+      true
+    > &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cashier.cashier'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiConfigurationConfiguration extends Struct.SingleTypeSchema {
   collectionName: 'configurations';
   info: {
@@ -589,6 +624,41 @@ export interface ApiConfigurationConfiguration extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCryptoAssetCryptoAsset extends Struct.CollectionTypeSchema {
+  collectionName: 'crypto_assets';
+  info: {
+    description: '';
+    displayName: 'Crypto Asset';
+    pluralName: 'crypto-assets';
+    singularName: 'crypto-asset';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    active: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    internal_id: Schema.Attribute.UID & Schema.Attribute.Required;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::crypto-asset.crypto-asset'
+    > &
+      Schema.Attribute.Private;
+    minimum_deposit_amount: Schema.Attribute.Float;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1562,7 +1632,9 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::auth.auth': ApiAuthAuth;
       'api::balance.balance': ApiBalanceBalance;
+      'api::cashier.cashier': ApiCashierCashier;
       'api::configuration.configuration': ApiConfigurationConfiguration;
+      'api::crypto-asset.crypto-asset': ApiCryptoAssetCryptoAsset;
       'api::eeat.eeat': ApiEeatEeat;
       'api::faq.faq': ApiFaqFaq;
       'api::footer.footer': ApiFooterFooter;

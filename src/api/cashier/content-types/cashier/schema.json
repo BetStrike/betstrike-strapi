@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "cashiers",
+  "info": {
+    "singularName": "cashier",
+    "pluralName": "cashiers",
+    "displayName": "Cashier",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "crypto_deposit": {
+      "displayName": "Crypto Deposit",
+      "type": "component",
+      "repeatable": true,
+      "component": "cashier.crypto-deposit",
+      "required": true
+    },
+    "crypto_withdraws": {
+      "displayName": "Crypto Withdraw",
+      "type": "component",
+      "repeatable": true,
+      "component": "cashier.crypto-withdraw",
+      "required": true
+    }
+  }
+}
