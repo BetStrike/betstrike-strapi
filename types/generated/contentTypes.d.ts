@@ -866,6 +866,7 @@ export interface ApiGameGame extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    wideImage: Schema.Attribute.Media<'images'>;
   };
 }
 

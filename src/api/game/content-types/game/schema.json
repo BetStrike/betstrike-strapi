@@ -65,6 +65,14 @@
     "name": {
       "type": "string",
       "required": true
+    },
+    "wideImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": false
     }
   }
 }
