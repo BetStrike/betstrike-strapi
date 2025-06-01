@@ -40,6 +40,11 @@
       "repeatable": true,
       "component": "homepage.game-carousel",
       "required": false
+    },
+    "slots": {
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.game-carousel"
     }
   }
 }

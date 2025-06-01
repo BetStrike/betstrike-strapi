@@ -941,6 +941,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     >;
     originals: Schema.Attribute.Component<'homepage.game-carousel', true>;
     publishedAt: Schema.Attribute.DateTime;
+    slots: Schema.Attribute.Component<'homepage.game-carousel', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
