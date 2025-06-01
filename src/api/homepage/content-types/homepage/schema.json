@@ -21,6 +21,25 @@
       "type": "component",
       "repeatable": true,
       "component": "general.carousel-item"
+    },
+    "originals": {
+      "displayName": "Game Carousel",
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.game-carousel",
+      "required": false
+    },
+    "live_games": {
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.game-carousel",
+      "required": false
+    },
+    "game_shows": {
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.game-carousel",
+      "required": false
     }
   }
 }

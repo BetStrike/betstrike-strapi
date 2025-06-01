@@ -317,6 +317,17 @@ export interface GeneralUrl extends Struct.ComponentSchema {
   };
 }
 
+export interface HomepageGameCarousel extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_game_carousels';
+  info: {
+    displayName: 'Game Carousel';
+  };
+  attributes: {
+    game: Schema.Attribute.Relation<'oneToOne', 'api::game.game'>;
+    override_image: Schema.Attribute.Media<'images'>;
+  };
+}
+
 export interface LegalAmlPolicy extends Struct.ComponentSchema {
   collectionName: 'components_legal_aml_policies';
   info: {
@@ -523,6 +534,7 @@ declare module '@strapi/strapi' {
       'general.picture': GeneralPicture;
       'general.topic': GeneralTopic;
       'general.url': GeneralUrl;
+      'homepage.game-carousel': HomepageGameCarousel;
       'legal.aml-policy': LegalAmlPolicy;
       'legal.complaints-policy': LegalComplaintsPolicy;
       'legal.license': LegalLicense;

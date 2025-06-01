@@ -866,7 +866,6 @@ export interface ApiGameGame extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    wideImage: Schema.Attribute.Media<'images'>;
   };
 }
 
@@ -933,11 +932,14 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    game_shows: Schema.Attribute.Component<'homepage.game-carousel', true>;
+    live_games: Schema.Attribute.Component<'homepage.game-carousel', true>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::homepage.homepage'
     >;
+    originals: Schema.Attribute.Component<'homepage.game-carousel', true>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

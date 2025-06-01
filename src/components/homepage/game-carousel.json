@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_homepage_game_carousels",
+  "info": {
+    "displayName": "Game Carousel"
+  },
+  "options": {},
+  "attributes": {
+    "game": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::game.game"
+    },
+    "override_image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
