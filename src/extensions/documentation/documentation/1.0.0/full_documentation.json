@@ -19,7 +19,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-06-01T09:41:25.630Z"
+    "x-generation-date": "2025-06-03T15:04:44.610Z"
   },
   "servers": [
     {
@@ -13127,9 +13127,9 @@
               "coverImage",
               "popularLevel",
               "releaseDate",
-              "type",
               "slug",
-              "name"
+              "name",
+              "type"
             ],
             "type": "object",
             "properties": {
@@ -13158,15 +13158,6 @@
                 "type": "string",
                 "format": "date"
               },
-              "type": {
-                "type": "string",
-                "enum": [
-                  "ORIGINAL",
-                  "LIVE_GAME",
-                  "SLOTS",
-                  "GAME_SHOW"
-                ]
-              },
               "game_provider": {
                 "oneOf": [
                   {
@@ -13187,6 +13178,7 @@
               "name": {
                 "type": "string"
               },
+              "type": {},
               "locale": {
                 "type": "string"
               },
@@ -13250,9 +13242,9 @@
           "coverImage",
           "popularLevel",
           "releaseDate",
-          "type",
           "slug",
-          "name"
+          "name",
+          "type"
         ],
         "properties": {
           "id": {
@@ -13873,15 +13865,6 @@
             "type": "string",
             "format": "date"
           },
-          "type": {
-            "type": "string",
-            "enum": [
-              "ORIGINAL",
-              "LIVE_GAME",
-              "SLOTS",
-              "GAME_SHOW"
-            ]
-          },
           "game_provider": {
             "type": "object",
             "properties": {
@@ -14088,6 +14071,7 @@
           "name": {
             "type": "string"
           },
+          "type": {},
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -14279,15 +14263,6 @@
                   "type": "string",
                   "format": "date"
                 },
-                "type": {
-                  "type": "string",
-                  "enum": [
-                    "ORIGINAL",
-                    "LIVE_GAME",
-                    "SLOTS",
-                    "GAME_SHOW"
-                  ]
-                },
                 "game_provider": {
                   "type": "object",
                   "properties": {
@@ -14308,6 +14283,7 @@
                 "name": {
                   "type": "string"
                 },
+                "type": {},
                 "createdAt": {
                   "type": "string",
                   "format": "date-time"

@@ -8,12 +8,22 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
   },
   "attributes": {
     "title": {
       "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "coverImage": {
       "type": "media",
@@ -21,29 +31,39 @@
       "required": true,
       "allowedTypes": [
         "images"
-      ]
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     },
     "popularLevel": {
       "type": "integer",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     },
     "rtp": {
       "type": "float",
-      "required": false
+      "required": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     },
     "releaseDate": {
       "type": "date",
-      "required": true
-    },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "ORIGINAL",
-        "LIVE_GAME",
-        "SLOTS",
-        "GAME_SHOW"
-      ],
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     },
     "game_provider": {
       "type": "relation",
@@ -55,7 +75,12 @@
       "options": {
         "preset": "defaultHtml"
       },
-      "customField": "plugin::ckeditor5.CKEditor"
+      "customField": "plugin::ckeditor5.CKEditor",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "slug": {
       "type": "uid",
@@ -64,7 +89,25 @@
     },
     "name": {
       "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "type": {
+      "type": "customField",
+      "default": "[]",
+      "options": [
+        "Originals:ORIGINAL",
+        "Live Games:LIVE_GAME",
+        "Slots:SLOTS",
+        "Game Shows:GAME_SHOW"
+      ],
+      "required": true,
+      "min": 1,
+      "customField": "plugin::multi-select.multi-select"
     }
   }
 }
