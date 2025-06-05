@@ -676,21 +676,50 @@ export interface ApiEeatEeat extends Struct.SingleTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    about: Schema.Attribute.Component<'eeat.about', false>;
-    accessibility: Schema.Attribute.Component<'eeat.accessibility', false>;
-    code_of_ethics: Schema.Attribute.Component<'eeat.code-of-ethics', false>;
+    about: Schema.Attribute.Component<'eeat.about', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    accessibility: Schema.Attribute.Component<'eeat.accessibility', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    code_of_ethics: Schema.Attribute.Component<'eeat.code-of-ethics', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    disclaimer: Schema.Attribute.Component<'eeat.disclaimer', false>;
+    disclaimer: Schema.Attribute.Component<'eeat.disclaimer', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     editorial_policies: Schema.Attribute.Component<
       'eeat.editorial-policies',
       false
-    >;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::eeat.eeat'> &
-      Schema.Attribute.Private;
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::eeat.eeat'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1155,33 +1184,69 @@ export interface ApiPolicyPolicy extends Struct.SingleTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    aml_policy: Schema.Attribute.Component<'legal.aml-policy', false>;
+    aml_policy: Schema.Attribute.Component<'legal.aml-policy', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     complaints_policy: Schema.Attribute.Component<
       'legal.complaints-policy',
       false
-    >;
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    license: Schema.Attribute.Component<'legal.license', false>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::policy.policy'
-    > &
-      Schema.Attribute.Private;
-    privacy_policy: Schema.Attribute.Component<'legal.privacy-policy', false>;
-    provably_fair: Schema.Attribute.Component<'legal.probavly-fair', false>;
+    license: Schema.Attribute.Component<'legal.license', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::policy.policy'>;
+    privacy_policy: Schema.Attribute.Component<'legal.privacy-policy', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    provably_fair: Schema.Attribute.Component<'legal.probavly-fair', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     responsible_gambling: Schema.Attribute.Component<
       'legal.responsible-gaming',
       false
-    >;
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     terms_of_service: Schema.Attribute.Component<
       'legal.terms-of-service',
       false
-    >;
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

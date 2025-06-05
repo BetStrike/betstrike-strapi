@@ -10,31 +10,61 @@
   "options": {
     "draftAndPublish": true
   },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "about": {
       "type": "component",
       "repeatable": false,
-      "component": "eeat.about"
+      "component": "eeat.about",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "accessibility": {
       "type": "component",
       "repeatable": false,
-      "component": "eeat.accessibility"
+      "component": "eeat.accessibility",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "code_of_ethics": {
       "type": "component",
       "repeatable": false,
-      "component": "eeat.code-of-ethics"
+      "component": "eeat.code-of-ethics",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "disclaimer": {
       "type": "component",
       "repeatable": false,
-      "component": "eeat.disclaimer"
+      "component": "eeat.disclaimer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "editorial_policies": {
       "type": "component",
       "repeatable": false,
-      "component": "eeat.editorial-policies"
+      "component": "eeat.editorial-policies",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
