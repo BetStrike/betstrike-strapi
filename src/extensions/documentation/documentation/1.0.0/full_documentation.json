@@ -19,7 +19,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-06-05T18:37:56.601Z"
+    "x-generation-date": "2025-06-05T19:02:54.356Z"
   },
   "servers": [
     {
@@ -14712,6 +14712,9 @@
               "providers": {
                 "$ref": "#/components/schemas/GameFaqGameFaqComponent"
               },
+              "slots": {
+                "$ref": "#/components/schemas/GameFaqGameFaqComponent"
+              },
               "locale": {
                 "type": "string"
               },
@@ -14787,6 +14790,9 @@
             "$ref": "#/components/schemas/GameFaqGameFaqComponent"
           },
           "providers": {
+            "$ref": "#/components/schemas/GameFaqGameFaqComponent"
+          },
+          "slots": {
             "$ref": "#/components/schemas/GameFaqGameFaqComponent"
           },
           "createdAt": {
@@ -15099,6 +15105,9 @@
                   "$ref": "#/components/schemas/GameFaqGameFaqComponent"
                 },
                 "providers": {
+                  "$ref": "#/components/schemas/GameFaqGameFaqComponent"
+                },
+                "slots": {
                   "$ref": "#/components/schemas/GameFaqGameFaqComponent"
                 },
                 "createdAt": {
