@@ -121,6 +121,24 @@ export interface FooterColumn extends Struct.ComponentSchema {
   };
 }
 
+export interface GameFaqGameFaq extends Struct.ComponentSchema {
+  collectionName: 'components_game_faq_game_faqs';
+  info: {
+    displayName: 'Game FAQ';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface GamesDouble extends Struct.ComponentSchema {
   collectionName: 'components_games_doubles';
   info: {
@@ -520,6 +538,7 @@ declare module '@strapi/strapi' {
       'eeat.disclaimer': EeatDisclaimer;
       'eeat.editorial-policies': EeatEditorialPolicies;
       'footer.column': FooterColumn;
+      'game-faq.game-faq': GameFaqGameFaq;
       'games.double': GamesDouble;
       'games.mines': GamesMines;
       'games.plinko': GamesPlinko;

@@ -17,23 +17,10 @@
   },
   "attributes": {
     "originals": {
-      "type": "customField",
-      "options": {
-        "preset": "defaultHtml"
-      },
-      "customField": "plugin::ckeditor5.CKEditor",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "slots": {
-      "type": "customField",
-      "options": {
-        "preset": "defaultHtml"
-      },
-      "customField": "plugin::ckeditor5.CKEditor",
+      "displayName": "Game FAQ",
+      "type": "component",
+      "repeatable": false,
+      "component": "game-faq.game-faq",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -41,23 +28,9 @@
       }
     },
     "live_casino_games": {
-      "type": "customField",
-      "options": {
-        "preset": "defaultHtml"
-      },
-      "customField": "plugin::ckeditor5.CKEditor",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "providers": {
-      "type": "customField",
-      "options": {
-        "preset": "defaultHtml"
-      },
-      "customField": "plugin::ckeditor5.CKEditor",
+      "type": "component",
+      "repeatable": false,
+      "component": "game-faq.game-faq",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -65,11 +38,19 @@
       }
     },
     "game_shows": {
-      "type": "customField",
-      "options": {
-        "preset": "defaultHtml"
-      },
-      "customField": "plugin::ckeditor5.CKEditor",
+      "type": "component",
+      "repeatable": false,
+      "component": "game-faq.game-faq",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "providers": {
+      "type": "component",
+      "repeatable": false,
+      "component": "game-faq.game-faq",
       "pluginOptions": {
         "i18n": {
           "localized": true

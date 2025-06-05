@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_game_faq_game_faqs",
+  "info": {
+    "displayName": "Game FAQ"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "required": true,
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

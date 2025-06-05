@@ -19,7 +19,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-06-05T18:08:00.968Z"
+    "x-generation-date": "2025-06-05T18:37:56.601Z"
   },
   "servers": [
     {
@@ -14332,8 +14332,8 @@
                   }
                 }
               },
-              "description": {
-                "type": "string"
+              "faq": {
+                "$ref": "#/components/schemas/GameFaqGameFaqComponent"
               },
               "createdAt": {
                 "type": "string",
@@ -14677,6 +14677,20 @@
           }
         }
       },
+      "GameFaqGameFaqComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
       "GameFaqRequest": {
         "type": "object",
         "required": [
@@ -14687,19 +14701,16 @@
             "type": "object",
             "properties": {
               "originals": {
-                "type": "string"
-              },
-              "slots": {
-                "type": "string"
+                "$ref": "#/components/schemas/GameFaqGameFaqComponent"
               },
               "live_casino_games": {
-                "type": "string"
-              },
-              "providers": {
-                "type": "string"
+                "$ref": "#/components/schemas/GameFaqGameFaqComponent"
               },
               "game_shows": {
-                "type": "string"
+                "$ref": "#/components/schemas/GameFaqGameFaqComponent"
+              },
+              "providers": {
+                "$ref": "#/components/schemas/GameFaqGameFaqComponent"
               },
               "locale": {
                 "type": "string"
@@ -14767,19 +14778,16 @@
             "type": "string"
           },
           "originals": {
-            "type": "string"
-          },
-          "slots": {
-            "type": "string"
+            "$ref": "#/components/schemas/GameFaqGameFaqComponent"
           },
           "live_casino_games": {
-            "type": "string"
-          },
-          "providers": {
-            "type": "string"
+            "$ref": "#/components/schemas/GameFaqGameFaqComponent"
           },
           "game_shows": {
-            "type": "string"
+            "$ref": "#/components/schemas/GameFaqGameFaqComponent"
+          },
+          "providers": {
+            "$ref": "#/components/schemas/GameFaqGameFaqComponent"
           },
           "createdAt": {
             "type": "string",
@@ -15082,19 +15090,16 @@
                   "type": "string"
                 },
                 "originals": {
-                  "type": "string"
-                },
-                "slots": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/GameFaqGameFaqComponent"
                 },
                 "live_casino_games": {
-                  "type": "string"
-                },
-                "providers": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/GameFaqGameFaqComponent"
                 },
                 "game_shows": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/GameFaqGameFaqComponent"
+                },
+                "providers": {
+                  "$ref": "#/components/schemas/GameFaqGameFaqComponent"
                 },
                 "createdAt": {
                   "type": "string",
@@ -15194,8 +15199,8 @@
                 ],
                 "example": "string or id"
               },
-              "description": {
-                "type": "string"
+              "faq": {
+                "$ref": "#/components/schemas/GameFaqGameFaqComponent"
               },
               "locale": {
                 "type": "string"
@@ -15871,8 +15876,8 @@
               }
             }
           },
-          "description": {
-            "type": "string"
+          "faq": {
+            "$ref": "#/components/schemas/GameFaqGameFaqComponent"
           },
           "createdAt": {
             "type": "string",
@@ -16057,8 +16062,8 @@
                     }
                   }
                 },
-                "description": {
-                  "type": "string"
+                "faq": {
+                  "$ref": "#/components/schemas/GameFaqGameFaqComponent"
                 },
                 "createdAt": {
                   "type": "string",
