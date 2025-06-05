@@ -10,42 +10,82 @@
   "options": {
     "draftAndPublish": true
   },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "terms_of_service": {
       "type": "component",
       "repeatable": false,
-      "component": "legal.terms-of-service"
+      "component": "legal.terms-of-service",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "provably_fair": {
       "type": "component",
       "repeatable": false,
-      "component": "legal.probavly-fair"
+      "component": "legal.probavly-fair",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "privacy_policy": {
       "type": "component",
       "repeatable": false,
-      "component": "legal.privacy-policy"
+      "component": "legal.privacy-policy",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "responsible_gambling": {
       "type": "component",
       "repeatable": false,
-      "component": "legal.responsible-gaming"
+      "component": "legal.responsible-gaming",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "aml_policy": {
       "type": "component",
       "repeatable": false,
-      "component": "legal.aml-policy"
+      "component": "legal.aml-policy",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "license": {
       "type": "component",
       "repeatable": false,
-      "component": "legal.license"
+      "component": "legal.license",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "complaints_policy": {
       "displayName": "complaints_policy",
       "type": "component",
       "repeatable": false,
-      "component": "legal.complaints-policy"
+      "component": "legal.complaints-policy",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
