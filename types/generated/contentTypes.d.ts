@@ -910,7 +910,6 @@ export interface ApiGameProviderGameProvider
         };
       }>;
     image: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;

@@ -19,7 +19,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-06-05T19:02:54.356Z"
+    "x-generation-date": "2025-06-06T11:57:36.847Z"
   },
   "servers": [
     {
@@ -15186,8 +15186,7 @@
           "data": {
             "required": [
               "name",
-              "slug",
-              "image"
+              "slug"
             ],
             "type": "object",
             "properties": {
@@ -15271,8 +15270,7 @@
         "type": "object",
         "required": [
           "name",
-          "slug",
-          "image"
+          "slug"
         ],
         "properties": {
           "id": {
