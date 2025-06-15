@@ -952,13 +952,6 @@ export interface ApiGameGame extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    coverImage: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -974,10 +967,6 @@ export interface ApiGameGame extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    game_provider: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::game-provider.game-provider'
-    >;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::game.game'>;
     name: Schema.Attribute.String &
@@ -987,27 +976,7 @@ export interface ApiGameGame extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    popularLevel: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     publishedAt: Schema.Attribute.DateTime;
-    releaseDate: Schema.Attribute.Date &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    rtp: Schema.Attribute.Float &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
@@ -1016,24 +985,6 @@ export interface ApiGameGame extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    type: Schema.Attribute.JSON &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::multi-select.multi-select',
-        [
-          'Originals:ORIGINAL',
-          'Live Games:LIVE_GAME',
-          'Slots:SLOTS',
-          'Game Shows:GAME_SHOW',
-        ]
-      > &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      > &
-      Schema.Attribute.DefaultTo<'[]'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

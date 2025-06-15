@@ -338,11 +338,12 @@ export interface GeneralUrl extends Struct.ComponentSchema {
 export interface HomepageGameCarousel extends Struct.ComponentSchema {
   collectionName: 'components_homepage_game_carousels';
   info: {
+    description: '';
     displayName: 'Game Carousel';
   };
   attributes: {
-    game: Schema.Attribute.Relation<'oneToOne', 'api::game.game'>;
-    override_image: Schema.Attribute.Media<'images'>;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 

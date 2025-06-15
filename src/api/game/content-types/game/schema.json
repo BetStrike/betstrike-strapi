@@ -25,51 +25,6 @@
         }
       }
     },
-    "coverImage": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
-    "popularLevel": {
-      "type": "integer",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
-    "rtp": {
-      "type": "float",
-      "required": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
-    "releaseDate": {
-      "type": "date",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
-    "game_provider": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::game-provider.game-provider"
-    },
     "description": {
       "type": "customField",
       "options": {
@@ -95,19 +50,6 @@
           "localized": true
         }
       }
-    },
-    "type": {
-      "type": "customField",
-      "default": "[]",
-      "options": [
-        "Originals:ORIGINAL",
-        "Live Games:LIVE_GAME",
-        "Slots:SLOTS",
-        "Game Shows:GAME_SHOW"
-      ],
-      "required": true,
-      "min": 1,
-      "customField": "plugin::multi-select.multi-select"
     }
   }
 }
